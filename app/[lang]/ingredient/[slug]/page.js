@@ -158,7 +158,7 @@ export default async function IngredientPage({ params }) {
             <small>{ar ? "لماذا أشتري مكمل؟" : "WHAT DOES A SUPPLEMENT ADD?"}</small>
             <p>{d.foodVsShelf.shelf}</p>
           </div>
-          <div className="verdict">
+          <div className="fvsTake">
             <small>{ar ? "خلاصة A7i" : "A7i TAKE"}</small>
             <strong>{d.foodVsShelf.verdict}</strong>
           </div>
