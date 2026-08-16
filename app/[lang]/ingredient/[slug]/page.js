@@ -392,6 +392,28 @@ export default async function IngredientPage({ params }) {
         </details>
       </section>
 
+      <section className="sourcesBlock">
+        <p className="eyebrow">{ar ? "المصادر" : "SOURCES"}</p>
+        <p className="srcLead">
+          {ar
+            ? "كل رقم ومطالبة في هذه الصفحة تستند إلى المراجع أدناه. حين لا يوجد مرجع رسمي، تقول الصفحة ذلك صراحةً."
+            : "Every figure and claim on this page rests on the references below. Where no authoritative source exists, the page says so rather than implying one."}
+        </p>
+        <ul className="srcList">
+          {item.sources.map((sc) => (
+            <li key={sc.url}>
+              <a href={sc.url} target="_blank" rel="noreferrer">{sc.label} ↗</a>
+              <span>{sc.type}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="srcNote">
+          {ar
+            ? "أرقام تركيب الأغذية قيم تقريبية نموذجية لكل حصة، وتتفاوت حسب الصنف والتربة والتحضير."
+            : "Food composition figures are typical approximate values per stated serving, and vary with variety, soil and preparation."}
+        </p>
+      </section>
+
       <aside className="medicalCallout">
         <strong>
           {ar

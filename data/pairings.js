@@ -31,6 +31,15 @@ const NIH = {
   d:   S("NIH ODS — Vitamin D", "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"),
   c:   S("NIH ODS — Vitamin C", "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"),
   pro: S("NIH ODS — Probiotics", "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional/"),
+  k:   S("NIH ODS — Vitamin K", "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/"),
+  b12: S("NIH ODS — Vitamin B12", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"),
+  o3:  S("NIH ODS — Omega-3 Fatty Acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"),
+  coq: S("NCCIH — Coenzyme Q10", "https://www.nccih.nih.gov/health/coenzyme-q10"),
+  dia: S("NCCIH — Diabetes and dietary supplements", "https://www.nccih.nih.gov/health/diabetes-and-dietary-supplements-what-you-need-to-know"),
+  glu: S("NCCIH — Glucosamine and chondroitin", "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis"),
+  cr:  S("NIH ODS — Chromium", "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/"),
+  k_pot: S("NIH ODS — Potassium", "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/"),
+  who: S("WHO — Salt reduction", "https://www.who.int/news-room/fact-sheets/detail/salt-reduction"),
 };
 
 // A stack is only defined where a real combination exists. Ingredients without
@@ -305,7 +314,7 @@ export const pairings = {
                "انخفاض المغنيسيوم يصعّب تصحيح انخفاض البوتاسيوم، وسريرياً يُعالجان معاً عادة.") },
     ],
     keepApart: [
-      { from: "Potassium-sparing diuretics and ACE inhibitors", slug: null, source: null, strength: "caution",
+      { from: "Potassium-sparing diuretics and ACE inhibitors", slug: null, source: NIH.k_pot, strength: "caution",
         why: P("These raise blood potassium. Adding a supplement on top can push it dangerously high. This needs medical supervision.",
                "ترفع بوتاسيوم الدم، وإضافة مكمل فوقها قد ترفعه لمستوى خطر. يحتاج إشرافاً طبياً.") },
     ],
@@ -353,10 +362,10 @@ export const pairings = {
                "فيتامين سي معه قد يرفع امتصاص الكروم. أما هل يغيّر ذلك أي نتيجة فسؤال منفصل.") },
     ],
     keepApart: [
-      { from: "Insulin and metformin", slug: null, source: null, strength: "caution",
+      { from: "Insulin and metformin", slug: null, source: NIH.dia, strength: "caution",
         why: P("Chromium can affect blood glucose. Combining it with glucose-lowering medicines risks hypoglycaemia and needs clinical advice.",
                "الكروم قد يؤثر على سكر الدم، وجمعه مع أدوية خفض السكر يخاطر بهبوط السكر ويحتاج مشورة طبية.") },
-      { from: "Levothyroxine", slug: null, source: null, strength: "caution",
+      { from: "Levothyroxine", slug: null, source: NIH.cr, strength: "caution",
         why: P("Chromium picolinate can reduce levothyroxine absorption. Separate them.",
                "بيكولينات الكروم قد تقلل امتصاص الليفوثيروكسين. افصل بينهما.") },
     ],
@@ -402,12 +411,12 @@ export const pairings = {
 
   coq10: {
     pairWith: [
-      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+      { with: "A meal containing fat", slug: null, strength: "established", source: NIH.coq,
         why: P("CoQ10 is fat-soluble and absorbed poorly on its own. Food with fat improves it.",
                "كو إنزيم Q10 ذائب في الدهون وامتصاصه ضعيف وحده، والطعام الدهني يحسّنه.") },
     ],
     keepApart: [
-      { from: "Warfarin", slug: null, source: null, strength: "caution",
+      { from: "Warfarin", slug: null, source: NIH.coq, strength: "caution",
         why: P("CoQ10 may interact with warfarin. Anyone on anticoagulants should ask a clinician before starting it.",
                "قد يتفاعل مع الوارفارين. من يأخذ مميعات الدم يراجع طبيبه قبل البدء.") },
     ],
@@ -415,12 +424,12 @@ export const pairings = {
 
   "omega-3": {
     pairWith: [
-      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+      { with: "A meal containing fat", slug: null, strength: "established", source: NIH.o3,
         why: P("Absorption improves with a fatty meal, and reflux is less likely.",
                "الامتصاص يتحسن مع وجبة دهنية، ويقل احتمال الارتجاع.") },
     ],
     keepApart: [
-      { from: "Anticoagulants and upcoming surgery", slug: null, source: null, strength: "caution",
+      { from: "Anticoagulants and upcoming surgery", slug: null, source: NIH.o3, strength: "caution",
         why: P("High doses may affect bleeding time. Discuss with a clinician before surgery or alongside blood thinners.",
                "الجرعات العالية قد تؤثر على زمن النزف. ناقش الأمر مع طبيبك قبل الجراحة أو مع مميعات الدم.") },
     ],
@@ -429,7 +438,7 @@ export const pairings = {
   "vitamin-b12": {
     pairWith: [],
     keepApart: [
-      { from: "Assuming you need it", slug: null, source: null, strength: "caution",
+      { from: "Assuming you need it", slug: null, source: NIH.b12, strength: "caution",
         why: P("B12 supplements only help people who are low. If you eat animal foods and absorb normally, they do nothing. A blood test settles it.",
                "مكملات ب12 تفيد فقط من مستواه منخفض. إذا كنت تأكل منتجات حيوانية وامتصاصك طبيعي فلن تفيدك. تحليل الدم يحسم الأمر.") },
     ],
@@ -437,7 +446,7 @@ export const pairings = {
 
   sodium: {
     pairWith: [
-      { with: "Potassium", slug: "potassium", strength: "established", source: null,
+      { with: "Potassium", slug: "potassium", strength: "established", source: NIH.who,
         why: P("The balance between the two matters more for blood pressure than sodium alone. Most people would benefit from more potassium rather than less salt alone.",
                "التوازن بين الاثنين أهم لضغط الدم من الصوديوم وحده. أكثر الناس يستفيدون من رفع البوتاسيوم لا من خفض الملح فقط.") },
     ],
@@ -453,7 +462,7 @@ export const pairings = {
   "alpha-lipoic-acid": {
     pairWith: [],
     keepApart: [
-      { from: "Diabetes medicines", slug: null, source: null, strength: "caution",
+      { from: "Diabetes medicines", slug: null, source: NIH.dia, strength: "caution",
         why: P("Alpha lipoic acid can lower blood glucose. Combined with insulin or other glucose-lowering drugs it risks hypoglycaemia.",
                "قد يخفض حمض ألفا ليبويك سكر الدم، وجمعه مع الإنسولين أو أدوية خفض السكر يخاطر بهبوط السكر.") },
     ],
@@ -464,12 +473,12 @@ export const pairings = {
       { with: "Vitamin D3", slug: "vitamin-d3", strength: "plausible", source: null,
         why: P("D3 raises calcium absorption and K2 is involved in where that calcium ends up. The pairing is reasonable in theory and commonly sold. Human outcome evidence for the combination is not settled.",
                "د3 يرفع امتصاص الكالسيوم، وك2 يشارك في تحديد وجهته. الاقتران معقول نظرياً ويُباع كثيراً، لكن الدليل البشري على التركيبة غير محسوم.") },
-      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+      { with: "A meal containing fat", slug: null, strength: "established", source: NIH.k,
         why: P("K2 is fat-soluble, so absorption improves alongside dietary fat.",
                "ك2 ذائب في الدهون، فامتصاصه يتحسن مع دهون الطعام.") },
     ],
     keepApart: [
-      { from: "Warfarin", slug: null, source: null, strength: "caution",
+      { from: "Warfarin", slug: null, source: NIH.k, strength: "caution",
         why: P("Vitamin K directly opposes warfarin and alters INR. Anyone on warfarin must not change vitamin K intake without their prescriber. This is the most important thing on this page.",
                "فيتامين ك يعاكس الوارفارين مباشرة ويغيّر INR. من يأخذ الوارفارين يجب ألا يغيّر مدخوله من فيتامين ك دون طبيبه. هذه أهم نقطة في الصفحة.") },
     ],
@@ -477,12 +486,12 @@ export const pairings = {
 
   glucosamine: {
     pairWith: [
-      { with: "Chondroitin", slug: null, strength: "plausible", source: null,
+      { with: "Chondroitin", slug: null, strength: "plausible", source: NIH.glu,
         why: P("The two are usually sold and studied together. Whether the combination outperforms either alone is not settled.",
                "يُباعان ويُدرسان معاً عادة. أما هل تتفوق التركيبة على أي منهما وحده فغير محسوم.") },
     ],
     keepApart: [
-      { from: "Warfarin, and shellfish allergy", slug: null, source: null, strength: "caution",
+      { from: "Warfarin, and shellfish allergy", slug: null, source: NIH.glu, strength: "caution",
         why: P("Glucosamine may interact with warfarin. Most products are made from shellfish shells, which matters if you have a shellfish allergy.",
                "قد يتفاعل مع الوارفارين. ومعظم المنتجات تُصنع من أصداف المحار، وهذا مهم لمن لديه حساسية من المحار.") },
     ],

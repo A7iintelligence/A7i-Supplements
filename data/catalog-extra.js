@@ -155,7 +155,7 @@ export const extraReviewed = [
       forms: "Picolinate is the most studied supplement form. That does not make its outcome evidence strong.",
       evidence: "Weak to inconsistent for glucose outcomes; essential-role evidence is limited.",
     },
-    sources: [ODS("Chromium", "Chromium")],
+    sources: [ODS("Chromium", "Chromium"), src("NCCIH — Diabetes and dietary supplements", "https://www.nccih.nih.gov/health/diabetes-and-dietary-supplements-what-you-need-to-know")],
   },
 
   {
@@ -342,7 +342,7 @@ export const extraReviewed = [
       forms: "Ubiquinone and ubiquinol. Ubiquinol is marketed as better absorbed; the practical difference is debated and it costs more.",
       evidence: "Moderate for heart failure and statin-associated muscle symptoms; insufficient as a general longevity intervention.",
     },
-    sources: [src("PubMed — CoQ10 in heart failure", "https://pubmed.ncbi.nlm.nih.gov/25282031/", "peer-reviewed")],
+    sources: [src("NCCIH — Coenzyme Q10", "https://www.nccih.nih.gov/health/coenzyme-q10"), src("PubMed — CoQ10 in heart failure", "https://pubmed.ncbi.nlm.nih.gov/25282031/", "peer-reviewed")],
   },
 
   {
@@ -491,7 +491,7 @@ export const extraReviewed = [
       forms: "Racemic alpha lipoic acid and R-lipoic acid. R-form is marketed as the active isomer and costs more; most trial evidence used the racemic mixture.",
       evidence: "Moderate for diabetic neuropathy; insufficient as a general antioxidant.",
     },
-    sources: [src("PubMed — alpha lipoic acid in diabetic neuropathy", "https://pubmed.ncbi.nlm.nih.gov/22331630/", "peer-reviewed")],
+    sources: [src("NCCIH — Diabetes and dietary supplements", "https://www.nccih.nih.gov/health/diabetes-and-dietary-supplements-what-you-need-to-know"), src("PubMed — alpha lipoic acid in diabetic neuropathy", "https://pubmed.ncbi.nlm.nih.gov/22331630/", "peer-reviewed")],
   },
 
   {
