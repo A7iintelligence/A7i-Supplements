@@ -48,9 +48,9 @@ export const stacks = {
   magnesium: {
     items: [
       { name: "Magnesium", slug: "magnesium" },
-      { name: "Vitamin D3", slug: "vitamin-d3" },
+      { name: "Vitamin D3", slug: "vitamin-d3", dim: true },
     ],
-    tag: P("Works both ways", "علاقة متبادلة"),
+    tag: P("If you take vitamin D", "إن كنت تتناول فيتامين د"),
   },
   iron: {
     items: [
@@ -100,9 +100,9 @@ export const pairings = {
       { with: "Divided doses", slug: null, strength: "established", source: NIH.mg,
         why: P("Smaller amounts spread through the day are generally better tolerated than one large dose.",
                "الكميات الأصغر الموزعة على اليوم أفضل تحملاً عادة من جرعة واحدة كبيرة.") },
-      { with: "Vitamin D3", slug: "vitamin-d3", strength: "established", source: NIH.d,
-        why: P("The relationship runs both ways: magnesium is needed to activate vitamin D.",
-               "العلاقة متبادلة: المغنيسيوم لازم لتفعيل فيتامين د.") },
+      { with: "Vitamin D3, if you take it", slug: "vitamin-d3", strength: "established", source: NIH.d,
+        why: P("The dependency runs one way: vitamin D needs magnesium to be metabolised, not the reverse. So if you supplement vitamin D, magnesium status is worth attending to.",
+               "الاعتماد باتجاه واحد: فيتامين د يحتاج المغنيسيوم لأيضه، وليس العكس. لذا إن كنت تتناول فيتامين د، فحالة المغنيسيوم تستحق الانتباه.") },
     ],
     keepApart: [
       { from: "Quinolone and tetracycline antibiotics", slug: null, source: NIH.mg, strength: "caution",
@@ -149,6 +149,9 @@ export const pairings = {
       { from: "Quinolone and tetracycline antibiotics", slug: null, source: NIH.zn, strength: "caution",
         why: P("Take these antibiotics at least 2 hours before, or 4 to 6 hours after, zinc.",
                "تناول هذه المضادات قبل الزنك بساعتين على الأقل أو بعده بأربع إلى ست ساعات.") },
+      { from: "Iron supplements", slug: "iron", source: NIH.zn, strength: "caution",
+        why: P("High-dose iron taken at the same time reduces zinc absorption. Separate them rather than taking both with one meal.",
+               "جرعات الحديد العالية في الوقت نفسه تقلل امتصاص الزنك. افصل بينهما بدل تناولهما مع وجبة واحدة.") },
       { from: "Calcium supplements and high-phytate meals", slug: "calcium", source: NIH.zn, strength: "caution",
         why: P("Both reduce how much zinc you take up from that meal.",
                "كلاهما يقلل ما تمتصه من الزنك في تلك الوجبة.") },
