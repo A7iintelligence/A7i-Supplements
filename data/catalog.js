@@ -68,7 +68,7 @@ const coreReviewed = [
       why:"Calcium needs are real, but total dietary intake should be considered before adding a supplement.",
       targetLabel:"Dietary reference intake",
       target:"Most adults need 1,000–1,200 mg/day depending on age and sex.",
-      food:[["Milk · 1 cup","~300 mg"],["Yoghurt","Varies; often rich"],["Sardines/salmon with bones","Rich source"]],
+      food: [["Yoghurt, plain · 1 cup","~450 mg"],["Milk · 1 cup","~300 mg"],["Sardines with bones · 85 g","~325 mg"]],
       foodVsShelf:{
         canFood:"Yes — frequently.",
         reality:"Dairy, fortified alternatives and fish with edible bones can contribute large amounts.",
@@ -102,7 +102,7 @@ const coreReviewed = [
       why:"Iron supplementation is valuable when there is a defined need, but unnecessary iron can cause harm.",
       targetLabel:"Dietary reference intake",
       target:"Adult requirements vary substantially by sex and life stage. The adult UL is 45 mg/day for healthy people; therapeutic regimens can differ under medical care.",
-      food:[["Red meat","Haem iron"],["Shellfish","Rich source"],["Beans/lentils","Non-haem iron"]],
+      food: [["Oysters · 85 g","~8 mg"],["Lentils, cooked · 1 cup","~6.6 mg"],["Beef · 85 g","~2.1 mg"]],
       foodVsShelf:{
         canFood:"Yes for routine nutrition; not always enough to correct established deficiency.",
         reality:"Iron status depends on intake, blood loss, absorption, sex and life stage.",
@@ -136,7 +136,7 @@ const coreReviewed = [
       why:"Adequacy matters; more is not automatically better.",
       targetLabel:"Dietary reference intake",
       target:"Adult RDA is 11 mg/day for men and 8 mg/day for women. Adult UL is 40 mg/day from all sources unless higher intakes are medically supervised.",
-      food:[["Oysters","Very rich source"],["Beef","Rich source"],["Beans/nuts/whole grains","Contain zinc; phytate lowers bioavailability"]],
+      food: [["Oysters · 85 g","~74 mg"],["Beef · 85 g","~7 mg"],["Pumpkin seeds · 28 g","~2.2 mg"]],
       foodVsShelf:{
         canFood:"Yes — often.",
         reality:"Animal foods can provide highly bioavailable zinc; plant foods contribute too but phytate can reduce absorption.",
@@ -170,7 +170,7 @@ const coreReviewed = [
       why:"Deficiency is uncommon in healthy people but can occur in specific contexts, including excessive zinc exposure.",
       targetLabel:"Dietary reference intake",
       target:"Adult RDA is 900 mcg/day.",
-      food:[["Shellfish","Rich source"],["Organ meats","Rich source"],["Seeds, nuts and chocolate","Useful sources"]],
+      food: [["Beef liver · 85 g","~12 mg"],["Oysters · 85 g","~4.8 mg"],["Cashews · 28 g","~0.6 mg"]],
       foodVsShelf:{
         canFood:"Yes — usually.",
         reality:"A varied diet can provide copper without a dedicated supplement.",
@@ -204,7 +204,7 @@ const coreReviewed = [
       why:"Adequate selenium is important, but high chronic intake can cause selenosis.",
       targetLabel:"Dietary reference intake",
       target:"Adult RDA is 55 mcg/day. Do not treat high-dose selenium as a generic longevity strategy.",
-      food:[["Brazil nuts","Extremely rich but highly variable"],["Seafood","Good source"],["Meat/eggs","Contribute"]],
+      food: [["Brazil nut · 1 nut","~68–91 mcg"],["Tuna · 85 g","~92 mcg"],["Sardines · 85 g","~45 mcg"]],
       foodVsShelf:{
         canFood:"Yes — often very easily.",
         reality:"Brazil nuts can contain very high and variable selenium, so 'more nuts' is not a precise dosing strategy.",
@@ -238,7 +238,7 @@ const coreReviewed = [
       why:"Vitamin D is essential, but supplementation decisions should reflect diet, sun exposure, life stage and clinical context.",
       targetLabel:"Dietary reference intake",
       target:"Adult RDA is 15 mcg (600 IU)/day through age 70 and 20 mcg (800 IU)/day after age 70.",
-      food:[["Fatty fish","Best natural source"],["Egg yolk","Small amount"],["Fortified milk/alternatives","Often important dietary source"]],
+      food: [["Salmon · 85 g","~570 IU (14 mcg)"],["Fortified milk · 1 cup","~120 IU (3 mcg)"],["Egg yolk · 1 large","~44 IU (1.1 mcg)"]],
       foodVsShelf:{
         canFood:"Sometimes — but consistently reaching intake from food alone can be difficult.",
         reality:"Few foods naturally contain much vitamin D; fortified foods often contribute substantially.",
@@ -306,7 +306,7 @@ const coreReviewed = [
       why:"Trials have studied collagen peptides for skin, joint and exercise-related outcomes, but evidence quality differs by outcome.",
       targetLabel:"Research dose — not RDA",
       target:"There is no official daily collagen requirement. Trials commonly use defined gram-level doses that depend on product and outcome.",
-      food:[["Bone broth","Collagen/gelatin content varies"],["Chicken/fish skin","Natural collagen source"],["Gelatin","Collagen-derived protein"]],
+      food: [["Collagen peptides · 10 g scoop","10 g, standardised"],["Gelatin · 10 g","~9 g collagen protein"],["Bone broth · 1 cup","Highly variable, not measurable"]],
       foodVsShelf:{
         canFood:"Yes — but not with a precise peptide dose.",
         reality:"Home recipes vary by cut, cooking method, dilution and serving size.",
@@ -376,7 +376,7 @@ const coreReviewed = [
       why:"Evidence for one strain cannot automatically be transferred to a different strain or blend.",
       targetLabel:"No universal daily dose",
       target:"CFU count alone is not enough. Strain, dose, viability, formulation and the outcome studied all matter.",
-      food:[["Yoghurt with live cultures","Organisms vary"],["Kefir","Community varies"],["Other fermented foods","Not automatically a probiotic"]],
+      food: [["Yoghurt with live cultures · 1 cup","Often 10⁸–10⁹ CFU, strain unlisted"],["Kefir · 1 cup","Often 10⁹–10¹⁰ CFU, mixed community"],["Studied supplement · 1 dose","Strain and CFU stated on label"]],
       foodVsShelf:{
         canFood:"Food can provide live microbes — but not necessarily the strain and dose studied in a trial.",
         reality:"Fermented foods are valuable foods, but microbial composition may be variable or clinically uncharacterised.",

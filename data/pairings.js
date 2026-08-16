@@ -112,6 +112,11 @@ export const stacks = {
   nac: { items:[{name:"NAC",slug:"nac"}], tag:P("Treat as a medicine","تعامل معه كدواء") },
   coq10: { items:[{name:"CoQ10",slug:"coq10"},{name:"A fatty meal",slug:null}], tag:P("Fat-soluble","ذائب في الدهون") },
   "omega-3": { items:[{name:"Omega-3",slug:"omega-3"},{name:"A fatty meal",slug:null}], tag:P("Fat-soluble","ذائب في الدهون") },
+  "vitamin-b12": { items:[{name:"Vitamin B12",slug:"vitamin-b12"}], tag:P("Test, do not guess","افحص ولا تخمّن") },
+  sodium: { items:[{name:"Sodium",slug:"sodium"},{name:"Potassium",slug:"potassium"}], tag:P("The ratio matters","النسبة هي المهمة") },
+  msm: { items:[{name:"MSM",slug:"msm"}], tag:P("Nothing to pair it with","لا شيء يُقرن به") },
+  "alpha-lipoic-acid": { items:[{name:"Alpha lipoic acid",slug:"alpha-lipoic-acid"}], tag:P("Often taken away from food","يؤخذ غالباً بعيداً عن الطعام") },
+  glucosamine: { items:[{name:"Glucosamine",slug:"glucosamine"},{name:"Chondroitin",slug:null,dim:true}], tag:P("Usually sold together","يُباعان معاً عادة") },
   probiotics: {
     items: [
       { name: "A named strain", slug: "probiotics" },
@@ -413,6 +418,52 @@ export const pairings = {
       { from: "Anticoagulants and upcoming surgery", slug: null, source: null, strength: "caution",
         why: P("High doses may affect bleeding time. Discuss with a clinician before surgery or alongside blood thinners.",
                "الجرعات العالية قد تؤثر على زمن النزف. ناقش الأمر مع طبيبك قبل الجراحة أو مع مميعات الدم.") },
+    ],
+  },
+
+  "vitamin-b12": {
+    pairWith: [],
+    keepApart: [
+      { from: "Assuming you need it", slug: null, source: null, strength: "caution",
+        why: P("B12 supplements only help people who are low. If you eat animal foods and absorb normally, they do nothing. A blood test settles it.",
+               "مكملات ب12 تفيد فقط من مستواه منخفض. إذا كنت تأكل منتجات حيوانية وامتصاصك طبيعي فلن تفيدك. تحليل الدم يحسم الأمر.") },
+    ],
+  },
+
+  sodium: {
+    pairWith: [
+      { with: "Potassium", slug: "potassium", strength: "established", source: null,
+        why: P("The balance between the two matters more for blood pressure than sodium alone. Most people would benefit from more potassium rather than less salt alone.",
+               "التوازن بين الاثنين أهم لضغط الدم من الصوديوم وحده. أكثر الناس يستفيدون من رفع البوتاسيوم لا من خفض الملح فقط.") },
+    ],
+    keepApart: [
+      { from: "Electrolyte products used out of context", slug: null, source: null, strength: "caution",
+        why: P("These are designed for endurance sport and heavy heat. Used casually they add sodium most people already have too much of.",
+               "صُممت لرياضات التحمل والحرارة الشديدة. استخدامها اعتباطاً يضيف صوديوماً يفيض عن حاجة أكثر الناس.") },
+    ],
+  },
+
+  msm: { pairWith: [], keepApart: [] },
+
+  "alpha-lipoic-acid": {
+    pairWith: [],
+    keepApart: [
+      { from: "Diabetes medicines", slug: null, source: null, strength: "caution",
+        why: P("Alpha lipoic acid can lower blood glucose. Combined with insulin or other glucose-lowering drugs it risks hypoglycaemia.",
+               "قد يخفض حمض ألفا ليبويك سكر الدم، وجمعه مع الإنسولين أو أدوية خفض السكر يخاطر بهبوط السكر.") },
+    ],
+  },
+
+  glucosamine: {
+    pairWith: [
+      { with: "Chondroitin", slug: null, strength: "plausible", source: null,
+        why: P("The two are usually sold and studied together. Whether the combination outperforms either alone is not settled.",
+               "يُباعان ويُدرسان معاً عادة. أما هل تتفوق التركيبة على أي منهما وحده فغير محسوم.") },
+    ],
+    keepApart: [
+      { from: "Warfarin, and shellfish allergy", slug: null, source: null, strength: "caution",
+        why: P("Glucosamine may interact with warfarin. Most products are made from shellfish shells, which matters if you have a shellfish allergy.",
+               "قد يتفاعل مع الوارفارين. ومعظم المنتجات تُصنع من أصداف المحار، وهذا مهم لمن لديه حساسية من المحار.") },
     ],
   },
 

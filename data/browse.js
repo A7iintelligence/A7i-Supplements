@@ -32,6 +32,11 @@ export const verdicts = {
   nac: "clinician",
   coq10: "supplement-helps",
   "omega-3": "supplement-helps",
+  "vitamin-b12": "supplement-helps",
+  sodium: "food-first",
+  msm: "thin",
+  "alpha-lipoic-acid": "supplement-helps",
+  glucosamine: "thin",
 };
 
 // The browsable library. `slug` present = reviewed guide exists.
@@ -49,7 +54,7 @@ export const browseIndex = {
       L("Chromium","Cr","chromium"), L("Molybdenum","Mo","molybdenum"), L("Boron","B","boron"),
     ]},
     { group:{en:"Electrolytes", ar:"إلكتروليتات"}, items:[
-      L("Potassium","K","potassium"), L("Sodium","Na"),
+      L("Potassium","K","potassium"), L("Sodium","Na","sodium"),
     ]},
   ],
   vitamins: [
@@ -63,7 +68,7 @@ export const browseIndex = {
     { group:{en:"B-complex", ar:"مجموعة ب"}, items:[
       L("Vitamin B1","Thiamine"), L("Vitamin B2","Riboflavin"), L("Vitamin B3","Niacin"),
       L("Vitamin B5","Pantothenic acid"), L("Vitamin B6"), L("Biotin","B7"),
-      L("Folate","B9"), L("Vitamin B12"),
+      L("Folate","B9"), L("Vitamin B12",null,"vitamin-b12"),
     ]},
   ],
   "amino-acids": [
@@ -95,7 +100,7 @@ export const browseIndex = {
   ],
   "longevity-cellular-health": [
     { group:{en:"Mitochondrial", ar:"الميتوكوندريا"}, items:[
-      L("CoQ10",null,"coq10"), L("Ubiquinol"), L("PQQ"), L("Alpha-lipoic acid"),
+      L("CoQ10",null,"coq10"), L("Ubiquinol"), L("PQQ"), L("Alpha-lipoic acid",null,"alpha-lipoic-acid"),
     ]},
     { group:{en:"NAD+ precursors", ar:"طلائع NAD+"}, items:[
       L("Nicotinamide riboside","NR"), L("NMN"),
@@ -196,6 +201,11 @@ export const aliases = {
   taurine: ["taurin"],
   nac: ["n-acetylcysteine","acetylcysteine","cysteine"],
   coq10: ["coq 10","q10","ubiquinol","ubiquinone","coenzyme q"],
+  "vitamin-b12": ["b12","cobalamin","cyanocobalamin","methylcobalamin","b 12"],
+  sodium: ["na","salt"],
+  msm: ["methylsulfonylmethane","sulfur","sulphur"],
+  "alpha-lipoic-acid": ["ala","lipoic","alpha lipoic"],
+  glucosamine: ["chondroitin","joint"],
   "omega-3": ["omega3","omega 3","fish oil","epa","dha","krill"],
   probiotics: ["probiotic","pro biotic","good bacteria","gut bacteria","flora"],
 };
