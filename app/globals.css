@@ -396,3 +396,18 @@ body{background-attachment:scroll}
 .srcList span{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,239,231,.42);margin-inline-start:auto}
 .srcNote{margin:16px 0 0;font-size:12.5px;line-height:1.6;color:rgba(242,239,231,.42);max-width:72ch}
 @media(max-width:620px){.sourcesBlock{padding:18px}.srcList span{margin-inline-start:0}}
+
+/* ===== V16: lift the small labels off the dark ground ===== */
+.eyebrow,.infoCard small,.fvsGrid small,.deeperBody small,.answerChips small,
+.browseGroup .eyebrow,.indicators small,.ccRows small,.ccVerdict small,
+.srcList span,.enzDep,.enzDeficit span,.deepCards small,.absNote small,
+.pairColLabel,.stackTag,.srCat,.bSym,.heroKicker,.formNote,.gradedNote{
+  text-shadow:0 1px 2px rgba(0,0,0,.55);
+}
+.eyebrow,.browseGroup .eyebrow{color:rgba(242,239,231,.68);font-weight:800}
+.infoCard small,.fvsGrid small,.deeperBody small,.indicators small,
+.ccRows small,.deepCards small,.answerChips small{color:rgba(242,239,231,.62)}
+.srCat,.bSym,.srcList span{color:rgba(242,239,231,.55)}
+.stackTag{color:rgba(242,239,231,.68);border-color:rgba(242,239,231,.3)}
+.heroKicker{color:#D8BC80}
+.medicalCallout p{font-size:14.5px;line-height:1.7;max-width:74ch}

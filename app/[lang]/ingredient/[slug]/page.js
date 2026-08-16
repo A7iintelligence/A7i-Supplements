@@ -423,13 +423,13 @@ export default async function IngredientPage({ params }) {
       <aside className="medicalCallout">
         <strong>
           {ar
-            ? "حالتك الشخصية أهم من أي صفحة ويب."
-            : "Your individual context matters more than a webpage."}
+            ? "معلومات عامة، وليست استشارة شخصية."
+            : "General information, not personal advice."}
         </strong>
         <p>
           {ar
-            ? "راجع طبيبك أو الصيدلي قبل أن تبدأ أي مكمّل أو تغيّره."
-            : "Ask your doctor, pharmacist or qualified healthcare professional before starting or changing any supplement."}
+            ? "يقدّم A7i معلومات تثقيفية عامة لا تُغني عن تقييم حالتك. فهي لا تأخذ في الحسبان تاريخك المرضي أو أدويتك أو الحمل أو نتائج تحاليلك. استشر طبيبك أو الصيدلي قبل بدء أي مكمّل أو إيقافه أو الجمع بينه وبين غيره."
+            : "A7i provides general educational information. It cannot account for your medical history, current medications, pregnancy or laboratory results. Consult your physician or pharmacist before starting, stopping or combining any supplement."}
         </p>
       </aside>
     </main>
