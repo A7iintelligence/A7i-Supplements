@@ -309,3 +309,33 @@ body{background-attachment:scroll}
 .pairHead h2{font-size:24px}
 .heroBlock h1{letter-spacing:-.03em}
 }
+
+/* ===== V11: pairing stack bar + per-claim sources ===== */
+.pairStack{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:18px 22px;margin:0 0 22px;border-radius:14px;
+  background:linear-gradient(150deg,rgba(143,214,178,.10),rgba(143,214,178,.03));
+  border:1px solid rgba(143,214,178,.22);
+}
+.stackItem{display:inline-flex;align-items:center;gap:12px}
+.stackPlus{font-size:20px;color:var(--brass);line-height:1}
+.stackName{font:400 clamp(22px,2.6vw,29px)/1.05 var(--font-display),Georgia,serif;letter-spacing:-.02em;color:var(--ink)}
+.stackName.dim{color:rgba(242,239,231,.55)}
+.stackTag{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(242,239,231,.55);border:1px solid rgba(242,239,231,.22);
+  border-radius:999px;padding:4px 11px;white-space:nowrap;
+}
+.pairSrc{
+  display:inline-block;margin-top:9px;font-size:12px;color:var(--brass-2);
+  text-decoration:none;border-bottom:1px solid rgba(201,168,106,.42);padding-bottom:1px;
+}
+.pairSrc:hover{border-bottom-color:var(--brass)}
+.pairSrcNone{display:block;margin-top:9px;font-size:12px;color:rgba(242,239,231,.42);line-height:1.5;max-width:52ch}
+
+@media(max-width:620px){
+.pairStack{padding:15px 16px;gap:9px}
+.stackItem{gap:9px}
+.stackName{font-size:20px}
+.stackTag{font-size:9.5px;padding:3px 9px}
+}

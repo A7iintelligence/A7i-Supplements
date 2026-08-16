@@ -3,7 +3,7 @@ import Link from "next/link";
 import { categories, getReviewed, reviewed } from "@/data/catalog";
 import { indicators } from "@/data/site";
 import { verdicts } from "@/data/browse";
-import { getPairings, strengthMeta } from "@/data/pairings";
+import { getPairings, getStack, strengthMeta } from "@/data/pairings";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
 
@@ -53,6 +53,7 @@ export default async function IngredientPage({ params }) {
   const category = categories.find((c) => c.slug === item.category);
   const ind = indicators[slug]?.[ar ? "ar" : "en"] || null;
   const pair = getPairings(slug);
+  const stack = getStack(slug);
   const base = "https://supplements.a7iintelligence.com";
 
   const articleLd = {
@@ -170,8 +171,20 @@ export default async function IngredientPage({ params }) {
       {pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0) && (
         <section className="pairSection">
           <div className="pairHead">
-            <p className="eyebrow">{ar ? "الاقتران" : "PAIRING"}</p>
-            <h2>{ar ? "مع ماذا يُؤخذ، وعن ماذا يُفصل" : "What to pair it with, and what to keep it away from"}</h2>
+            <p className="eyebrow">{ar ? "الاقتران" : "THE PAIRING"}</p>
+            {stack ? (
+              <div className="pairStack">
+                {stack.items.map((it, i) => (
+                  <span key={it.name} className="stackItem">
+                    {i > 0 && <span className="stackPlus" aria-hidden="true">+</span>}
+                    <span className={it.dim ? "stackName dim" : "stackName"}>{it.name}</span>
+                  </span>
+                ))}
+                <span className="stackTag">{ar ? stack.tag.ar : stack.tag.en}</span>
+              </div>
+            ) : (
+              <h2>{ar ? "مع ماذا يُؤخذ، وعن ماذا يُفصل" : "What to pair it with, and what to keep it away from"}</h2>
+            )}
           </div>
 
           <div className="pairGrid">
@@ -193,6 +206,17 @@ export default async function IngredientPage({ params }) {
                       <span className={`verdict v-${st.tone} vSmall`}>{ar ? st.ar : st.en}</span>
                     </div>
                     <p>{ar ? x.why.ar : x.why.en}</p>
+                    {x.source ? (
+                      <a href={x.source.url} target="_blank" rel="noreferrer" className="pairSrc">
+                        {x.source.label} ↗
+                      </a>
+                    ) : (
+                      <span className="pairSrcNone">
+                        {ar
+                          ? "لا توصية من جهة مرجعية. مُدرج على أساس الآلية فقط."
+                          : "No authoritative body recommends this. Listed on mechanism only."}
+                      </span>
+                    )}
                   </article>
                 );
               })}
@@ -214,6 +238,11 @@ export default async function IngredientPage({ params }) {
                     <span className="verdict v-warn vSmall">{ar ? strengthMeta.caution.ar : strengthMeta.caution.en}</span>
                   </div>
                   <p>{ar ? x.why.ar : x.why.en}</p>
+                  {x.source && (
+                    <a href={x.source.url} target="_blank" rel="noreferrer" className="pairSrc">
+                      {x.source.label} ↗
+                    </a>
+                  )}
                 </article>
               ))}
             </div>
