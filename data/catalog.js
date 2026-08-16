@@ -1,5 +1,9 @@
 import { aliases } from "./browse";
 import { extraReviewed } from "./catalog-extra";
+import { arCore } from "./catalog-ar-core";
+import { arExtra } from "./catalog-ar-extra";
+
+const AR = { ...arCore, ...arExtra };
 
 // NOTE: data/research.js is INTERNAL ONLY. Never import it here or in any
 // public page/component — it must not reach the build output or client bundle.
@@ -399,7 +403,9 @@ const coreReviewed = [
   },
 ];
 
-export const reviewed = [...coreReviewed, ...extraReviewed];
+export const reviewed = [...coreReviewed, ...extraReviewed].map((i) =>
+  AR[i.slug] ? { ...i, ar: AR[i.slug] } : i
+);
 
 export const hiddenIndex = [
   ["enzymes",["Lactase","Protease","Lipase","Amylase","Alpha-galactosidase","Bromelain","Papain"]],

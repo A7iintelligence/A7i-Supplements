@@ -5,6 +5,7 @@ import { indicators } from "@/data/site";
 import { verdicts } from "@/data/browse";
 import { getPairings, getStack, strengthMeta } from "@/data/pairings";
 import { getForms, formStrength } from "@/data/forms";
+import { pairNameAr, stackNameAr, formNameAr } from "@/data/pair-names-ar";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
 
@@ -20,9 +21,14 @@ export async function generateMetadata({ params }) {
   if (!item) return {};
   const d = item[lang] || item.en;
 
+  const isAr = lang === "ar";
   return {
-    title: `${d.name}: food vs supplement, absorption, interactions & timing`,
-    description: `${d.name} in 60 seconds: food sources, daily intake or research dose, whether food can realistically provide it, absorption, interactions and timing.`,
+    title: isAr
+      ? `${d.name}: الغذاء أم المكمّل، الامتصاص والتداخلات والتوقيت`
+      : `${d.name}: food vs supplement, absorption, interactions & timing`,
+    description: isAr
+      ? `${d.name} في ستين ثانية: مصادره في الغذاء، المقدار اليومي أو الجرعة البحثية، هل يكفي الغذاء، الامتصاص والتداخلات والتوقيت.`
+      : `${d.name} in 60 seconds: food sources, daily intake or research dose, whether food can realistically provide it, absorption, interactions and timing.`,
     alternates: {
       canonical: `/${lang}/ingredient/${slug}`,
       languages: {
@@ -179,7 +185,7 @@ export default async function IngredientPage({ params }) {
                 {stack.items.map((it, i) => (
                   <span key={it.name} className="stackItem">
                     {i > 0 && <span className="stackPlus" aria-hidden="true">+</span>}
-                    <span className={it.dim ? "stackName dim" : "stackName"}>{it.name}</span>
+                    <span className={it.dim ? "stackName dim" : "stackName"}>{(ar && stackNameAr[it.name]) || it.name}</span>
                   </span>
                 ))}
                 <span className="stackTag">{ar ? stack.tag.ar : stack.tag.en}</span>
@@ -201,9 +207,9 @@ export default async function IngredientPage({ params }) {
                   <article key={x.with}>
                     <div className="pairTop">
                       {x.slug ? (
-                        <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{x.with}</Link>
+                        <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{(ar && pairNameAr[x.with]) || x.with}</Link>
                       ) : (
-                        <span className="pairName">{x.with}</span>
+                        <span className="pairName">{(ar && pairNameAr[x.with]) || x.with}</span>
                       )}
                       <span className={`verdict v-${st.tone} vSmall`}>{ar ? st.ar : st.en}</span>
                     </div>
@@ -233,9 +239,9 @@ export default async function IngredientPage({ params }) {
                 <article key={x.from}>
                   <div className="pairTop">
                     {x.slug ? (
-                      <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{x.from}</Link>
+                      <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{(ar && pairNameAr[x.from]) || x.from}</Link>
                     ) : (
-                      <span className="pairName">{x.from}</span>
+                      <span className="pairName">{(ar && pairNameAr[x.from]) || x.from}</span>
                     )}
                     <span className="verdict v-warn vSmall">{ar ? strengthMeta.caution.ar : strengthMeta.caution.en}</span>
                   </div>
@@ -306,7 +312,7 @@ export default async function IngredientPage({ params }) {
                     return (
                       <details className="formRow" key={f.name}>
                         <summary>
-                          <span className="formName">{f.name}</span>
+                          <span className="formName">{(ar && formNameAr[f.name]) || f.name}</span>
                           <span className={`verdict v-${fs.tone} vSmall`}>{ar ? fs.ar : fs.en}</span>
                         </summary>
                         <p>{ar ? f.why.ar : f.why.en}</p>

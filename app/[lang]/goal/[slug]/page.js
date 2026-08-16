@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   if (!goal) return {};
   const d = goal[lang] || goal.en;
   return {
-    title: `${d.name}: what the evidence actually supports`,
+    title: lang === "ar" ? `${d.name}: ما الذي يدعمه الدليل فعلاً` : `${d.name}: what the evidence actually supports`,
     description: `${d.teaser} ${d.lead}`,
     alternates: {
       canonical: `/${lang}/goal/${slug}`,
