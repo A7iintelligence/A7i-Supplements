@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories, getReviewed, reviewed } from "@/data/catalog";
 import { indicators } from "@/data/site";
 import { verdicts } from "@/data/browse";
+import { getPairings, strengthMeta } from "@/data/pairings";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
 
@@ -51,6 +52,7 @@ export default async function IngredientPage({ params }) {
   const ar = lang === "ar";
   const category = categories.find((c) => c.slug === item.category);
   const ind = indicators[slug]?.[ar ? "ar" : "en"] || null;
+  const pair = getPairings(slug);
   const base = "https://supplements.a7iintelligence.com";
 
   const articleLd = {
@@ -164,6 +166,66 @@ export default async function IngredientPage({ params }) {
           </div>
         </div>
       </section>
+
+      {pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0) && (
+        <section className="pairSection">
+          <div className="pairHead">
+            <p className="eyebrow">{ar ? "الاقتران" : "PAIRING"}</p>
+            <h2>{ar ? "مع ماذا يُؤخذ، وعن ماذا يُفصل" : "What to pair it with, and what to keep it away from"}</h2>
+          </div>
+
+          <div className="pairGrid">
+            <div className="pairCol">
+              <p className="pairColLabel good">{ar ? "اقترنه بـ" : "Pair with"}</p>
+              {pair.pairWith.length === 0 && (
+                <p className="quietText">{ar ? "لا اقتران عام مفيد." : "No useful general pairing."}</p>
+              )}
+              {pair.pairWith.map((x) => {
+                const st = strengthMeta[x.strength];
+                return (
+                  <article key={x.with}>
+                    <div className="pairTop">
+                      {x.slug ? (
+                        <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{x.with}</Link>
+                      ) : (
+                        <span className="pairName">{x.with}</span>
+                      )}
+                      <span className={`verdict v-${st.tone} vSmall`}>{ar ? st.ar : st.en}</span>
+                    </div>
+                    <p>{ar ? x.why.ar : x.why.en}</p>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="pairCol">
+              <p className="pairColLabel warn">{ar ? "افصله عن" : "Keep apart from"}</p>
+              {pair.keepApart.length === 0 && (
+                <p className="quietText">{ar ? "لا قاعدة فصل عامة." : "No general separation rule."}</p>
+              )}
+              {pair.keepApart.map((x) => (
+                <article key={x.from}>
+                  <div className="pairTop">
+                    {x.slug ? (
+                      <Link href={`/${lang}/ingredient/${x.slug}`} className="pairName">{x.from}</Link>
+                    ) : (
+                      <span className="pairName">{x.from}</span>
+                    )}
+                    <span className="verdict v-warn vSmall">{ar ? strengthMeta.caution.ar : strengthMeta.caution.en}</span>
+                  </div>
+                  <p>{ar ? x.why.ar : x.why.en}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <p className="pairNote">
+            {ar
+              ? "يُذكر كل اقتران بقوة الدليل الداعم له. \"معقول\" تعني آلية سليمة ونتائج بشرية غير محسومة."
+              : "Each pairing is stated at the strength the evidence supports. \"Plausible\" means the mechanism is sound but human outcomes are not settled."}
+          </p>
+        </section>
+      )}
 
       <section className="deeperSection">
         <p className="eyebrow">{t.whatNext}</p>
