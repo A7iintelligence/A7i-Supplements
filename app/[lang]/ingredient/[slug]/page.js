@@ -4,6 +4,7 @@ import { categories, getReviewed, reviewed } from "@/data/catalog";
 import { indicators } from "@/data/site";
 import { verdicts } from "@/data/browse";
 import { getPairings, getStack, strengthMeta } from "@/data/pairings";
+import { getForms, formStrength } from "@/data/forms";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
 
@@ -54,6 +55,7 @@ export default async function IngredientPage({ params }) {
   const ind = indicators[slug]?.[ar ? "ar" : "en"] || null;
   const pair = getPairings(slug);
   const stack = getStack(slug);
+  const formList = getForms(slug);
   const base = "https://supplements.a7iintelligence.com";
 
   const articleLd = {
@@ -269,7 +271,34 @@ export default async function IngredientPage({ params }) {
 
         <details className="deeper" name="deeper">
           <summary>{t.modForms}</summary>
-          <div className="deeperBody"><p>{d.forms}</p></div>
+          <div className="deeperBody">
+            {formList ? (
+              <>
+                <p>{ar ? formList.lead.ar : formList.lead.en}</p>
+                <div className="formList">
+                  {formList.items.map((f) => {
+                    const fs = formStrength[f.strength];
+                    return (
+                      <details className="formRow" key={f.name}>
+                        <summary>
+                          <span className="formName">{f.name}</span>
+                          <span className={`verdict v-${fs.tone} vSmall`}>{ar ? fs.ar : fs.en}</span>
+                        </summary>
+                        <p>{ar ? f.why.ar : f.why.en}</p>
+                      </details>
+                    );
+                  })}
+                </div>
+                <p className="formNote">
+                  {ar
+                    ? "\"ادعاء تسويقي\" يعني أن الادعاء شائع لكن الدليل البشري ضعيف أو غائب."
+                    : "\"Marketed claim\" means the claim is widely made but human evidence is thin or absent."}
+                </p>
+              </>
+            ) : (
+              <p>{d.forms}</p>
+            )}
+          </div>
         </details>
 
         <details className="deeper" name="deeper">

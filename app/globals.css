@@ -339,3 +339,15 @@ body{background-attachment:scroll}
 .stackName{font-size:20px}
 .stackTag{font-size:9.5px;padding:3px 9px}
 }
+
+/* ===== V12: form breakdown rows ===== */
+.formList{margin:14px 0 0;border-top:1px solid var(--line)}
+.formRow{border-bottom:1px solid var(--line)}
+.formRow summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 2px}
+.formRow summary::-webkit-details-marker{display:none}
+.formRow summary::after{content:"+";margin-inline-start:auto;font-size:16px;color:var(--muted)}
+.formRow[open] summary::after{content:"–"}
+.formRow summary:focus-visible{outline:2px solid var(--brass);outline-offset:2px;border-radius:5px}
+.formName{font-size:16px;color:var(--ink)}
+.formRow p{margin:0 0 14px;padding-inline-start:2px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch}
+.formNote{margin-top:14px!important;font-size:12.5px!important;color:rgba(242,239,231,.42)!important}
