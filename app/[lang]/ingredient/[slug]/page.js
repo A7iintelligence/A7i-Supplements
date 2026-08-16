@@ -170,7 +170,7 @@ export default async function IngredientPage({ params }) {
         </div>
       </section>
 
-      {pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0) && (
+      {(stack || (pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0))) && (
         <section className="pairSection">
           <div className="pairHead">
             <p className="eyebrow">{ar ? "الاقتران" : "THE PAIRING"}</p>
@@ -192,10 +192,10 @@ export default async function IngredientPage({ params }) {
           <div className="pairGrid">
             <div className="pairCol">
               <p className="pairColLabel good">{ar ? "تناوله مع" : "Pair with"}</p>
-              {pair.pairWith.length === 0 && (
+              {(!pair || pair.pairWith.length === 0) && (
                 <p className="quietText">{ar ? "لا اقتران عام مفيد." : "No useful general pairing."}</p>
               )}
-              {pair.pairWith.map((x) => {
+              {(pair?.pairWith || []).map((x) => {
                 const st = strengthMeta[x.strength];
                 return (
                   <article key={x.with}>
@@ -226,10 +226,10 @@ export default async function IngredientPage({ params }) {
 
             <div className="pairCol">
               <p className="pairColLabel warn">{ar ? "لا تجمعه مع" : "Keep apart from"}</p>
-              {pair.keepApart.length === 0 && (
+              {(!pair || pair.keepApart.length === 0) && (
                 <p className="quietText">{ar ? "لا قاعدة فصل عامة." : "No general separation rule."}</p>
               )}
-              {pair.keepApart.map((x) => (
+              {(pair?.keepApart || []).map((x) => (
                 <article key={x.from}>
                   <div className="pairTop">
                     {x.slug ? (

@@ -50,6 +50,14 @@ export default async function HomePage({ params }) {
         </div>
       </section>
 
+      <section className="shell explainerBlock">
+        <Link href={`/${lang}/how-minerals-work`} className="explainerLink">
+          <span className="eyebrow">{ar ? "شرح" : "EXPLAINER"}</span>
+          <strong>{ar ? "كيف تشتغل المعادن فعلياً" : "How minerals actually work"}</strong>
+          <span>{ar ? "الإنزيمات التي تفسّر لماذا ترتبط المعادن ببعضها." : "The enzymes that explain why minerals depend on each other."}</span>
+        </Link>
+      </section>
+
       <section className="shell rulesBlock">
         <p className="eyebrow">{t.rulesEyebrow}</p>
         <div className="rules">

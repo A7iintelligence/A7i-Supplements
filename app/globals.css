@@ -351,3 +351,22 @@ body{background-attachment:scroll}
 .formName{font-size:16px;color:var(--ink)}
 .formRow p{margin:0 0 14px;padding-inline-start:2px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch}
 .formNote{margin-top:14px!important;font-size:12.5px!important;color:rgba(242,239,231,.42)!important}
+
+/* ===== V13: enzyme explainer ===== */
+.enzymePage{padding:40px 0 90px}
+.enzymeList{border-top:1px solid var(--line)}
+.enzymeList article{padding:16px 2px;border-bottom:1px solid var(--line)}
+.enzHead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:7px}
+.enzName{font:400 19px var(--font-display),Georgia,serif;color:var(--ink)}
+.enzDep{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-2)}
+.enzymeList p{margin:0 0 7px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:70ch}
+.enzDeficit span{display:inline-block;margin-inline-end:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn-ink)}
+.enzLinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px!important}
+.enzLinks a{font-size:12px;text-transform:capitalize;color:var(--brass-2);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.enzLinks a:hover{border-color:var(--brass)}
+.explainerBlock{padding:44px 0;border-top:1px solid var(--line)}
+.explainerLink{display:block;padding:22px 24px;border:1px solid var(--line);border-radius:16px;text-decoration:none;background:linear-gradient(150deg,rgba(201,168,106,.12),rgba(201,168,106,.03))}
+.explainerLink:hover{border-color:rgba(201,168,106,.5)}
+.explainerLink .eyebrow{display:block;color:var(--brass-2);margin-bottom:8px}
+.explainerLink strong{display:block;font:400 26px var(--font-display),Georgia,serif;letter-spacing:-.02em;margin-bottom:6px}
+.explainerLink span:last-child{font-size:14px;color:var(--muted)}

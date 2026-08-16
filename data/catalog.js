@@ -1,4 +1,5 @@
 import { aliases } from "./browse";
+import { extraReviewed } from "./catalog-extra";
 
 // NOTE: data/research.js is INTERNAL ONLY. Never import it here or in any
 // public page/component — it must not reach the build output or client bundle.
@@ -20,7 +21,7 @@ export const categories = [
 
 const source = (label, url, type="primary/authoritative") => ({label,url,type});
 
-export const reviewed = [
+const coreReviewed = [
   {
     slug:"magnesium",
     researchKey:"magnesium",
@@ -397,6 +398,8 @@ export const reviewed = [
     ]
   },
 ];
+
+export const reviewed = [...coreReviewed, ...extraReviewed];
 
 export const hiddenIndex = [
   ["enzymes",["Lactase","Protease","Lipase","Amylase","Alpha-galactosidase","Bromelain","Papain"]],

@@ -40,5 +40,12 @@ export default function sitemap() {
     }))
   );
 
-  return [...home, ...goalUrls, ...categoryUrls, ...ingredientUrls];
+  const explainerUrls = langs.map((lang) => ({
+    url: `${base}/${lang}/how-minerals-work`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...home, ...explainerUrls, ...goalUrls, ...categoryUrls, ...ingredientUrls];
 }

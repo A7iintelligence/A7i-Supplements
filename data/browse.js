@@ -20,6 +20,18 @@ export const verdicts = {
   "collagen-peptides": "supplement-helps",
   creatine: "supplement-helps",
   probiotics: "supplement-helps",
+  potassium: "food-first",
+  iodine: "food-first",
+  phosphorus: "food-first",
+  manganese: "food-first",
+  chromium: "thin",
+  molybdenum: "food-first",
+  boron: "thin",
+  glycine: "supplement-helps",
+  taurine: "supplement-helps",
+  nac: "clinician",
+  coq10: "supplement-helps",
+  "omega-3": "supplement-helps",
 };
 
 // The browsable library. `slug` present = reviewed guide exists.
@@ -29,15 +41,15 @@ const L = (name, symbol = null, slug = null) => ({ name, symbol, slug });
 export const browseIndex = {
   minerals: [
     { group:{en:"Macrominerals", ar:"معادن كبرى"}, items:[
-      L("Magnesium","Mg","magnesium"), L("Calcium","Ca","calcium"), L("Phosphorus","P"),
+      L("Magnesium","Mg","magnesium"), L("Calcium","Ca","calcium"), L("Phosphorus","P","phosphorus"),
     ]},
     { group:{en:"Trace minerals", ar:"معادن نادرة"}, items:[
       L("Iron","Fe","iron"), L("Zinc","Zn","zinc"), L("Copper","Cu","copper"),
-      L("Selenium","Se","selenium"), L("Iodine","I"), L("Manganese","Mn"),
-      L("Chromium","Cr"), L("Molybdenum","Mo"), L("Boron","B"),
+      L("Selenium","Se","selenium"), L("Iodine","I","iodine"), L("Manganese","Mn","manganese"),
+      L("Chromium","Cr","chromium"), L("Molybdenum","Mo","molybdenum"), L("Boron","B","boron"),
     ]},
     { group:{en:"Electrolytes", ar:"إلكتروليتات"}, items:[
-      L("Potassium","K"), L("Sodium","Na"),
+      L("Potassium","K","potassium"), L("Sodium","Na"),
     ]},
   ],
   vitamins: [
@@ -60,11 +72,11 @@ export const browseIndex = {
       L("Threonine"), L("Tryptophan"), L("Histidine"), L("Phenylalanine"),
     ]},
     { group:{en:"Conditionally essential", ar:"أساسية شرطياً"}, items:[
-      L("Glycine"), L("Arginine"), L("Glutamine"), L("Tyrosine"), L("Cysteine"),
+      L("Glycine",null,"glycine"), L("Arginine"), L("Glutamine"), L("Tyrosine"), L("Cysteine"),
     ]},
     { group:{en:"Derivatives and peptides", ar:"مشتقات وببتيدات"}, items:[
       L("Creatine",null,"creatine"), L("Collagen peptides",null,"collagen-peptides"),
-      L("NAC","Cysteine derivative"), L("Citrulline"), L("BPC-157","Research peptide"),
+      L("NAC","Cysteine derivative","nac"), L("Citrulline"), L("BPC-157","Research peptide"),
     ]},
   ],
   probiotic: [
@@ -83,18 +95,18 @@ export const browseIndex = {
   ],
   "longevity-cellular-health": [
     { group:{en:"Mitochondrial", ar:"الميتوكوندريا"}, items:[
-      L("CoQ10"), L("Ubiquinol"), L("PQQ"), L("Alpha-lipoic acid"),
+      L("CoQ10",null,"coq10"), L("Ubiquinol"), L("PQQ"), L("Alpha-lipoic acid"),
     ]},
     { group:{en:"NAD+ precursors", ar:"طلائع NAD+"}, items:[
       L("Nicotinamide riboside","NR"), L("NMN"),
     ]},
     { group:{en:"Cellular cleanup", ar:"التنظيف الخلوي"}, items:[
-      L("Urolithin A"), L("Spermidine"), L("Ergothioneine"), L("Taurine"),
+      L("Urolithin A"), L("Spermidine"), L("Ergothioneine"), L("Taurine",null,"taurine"),
     ]},
   ],
   "fatty-acid-lipids": [
     { group:{en:"Marine omega-3", ar:"أوميغا-3 بحرية"}, items:[
-      L("Omega-3"), L("EPA"), L("DHA"), L("Fish oil"), L("Krill oil"),
+      L("Omega-3",null,"omega-3"), L("EPA"), L("DHA"), L("Fish oil"), L("Krill oil"),
     ]},
     { group:{en:"Plant-derived", ar:"نباتية المصدر"}, items:[
       L("ALA"), L("GLA"), L("Evening primrose oil"),
@@ -174,5 +186,16 @@ export const aliases = {
   "vitamin-c": ["vit c","vitc","ascorbic","ascorbic acid","vitamine c"],
   "collagen-peptides": ["colagen","collagin","collgen","peptides","bone broth"],
   creatine: ["creatin","kreatine","creapure","monohydrate"],
+  potassium: ["k","potasium"],
+  iodine: ["i","iodide","thyroid"],
+  chromium: ["cr","picolinate"],
+  manganese: ["mn"],
+  molybdenum: ["mo"],
+  boron: ["b"],
+  glycine: ["glycin"],
+  taurine: ["taurin"],
+  nac: ["n-acetylcysteine","acetylcysteine","cysteine"],
+  coq10: ["coq 10","q10","ubiquinol","ubiquinone","coenzyme q"],
+  "omega-3": ["omega3","omega 3","fish oil","epa","dha","krill"],
   probiotics: ["probiotic","pro biotic","good bacteria","gut bacteria","flora"],
 };

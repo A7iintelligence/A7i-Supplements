@@ -100,6 +100,18 @@ export const stacks = {
     items: [{ name: "Creatine monohydrate", slug: "creatine" }],
     tag: P("Nothing to pair it with", "لا شيء يُقرن به"),
   },
+  potassium: { items:[{name:"Potassium",slug:"potassium"},{name:"Magnesium",slug:"magnesium"}], tag:P("Fix magnesium too","صحّح المغنيسيوم أيضاً") },
+  iodine: { items:[{name:"Iodine",slug:"iodine"},{name:"Selenium",slug:"selenium"}], tag:P("Both needed for thyroid","الاثنان لازمان للغدة") },
+  phosphorus: { items:[{name:"Phosphorus",slug:"phosphorus"}], tag:P("Food covers it","الغذاء يغطيه") },
+  manganese: { items:[{name:"Manganese",slug:"manganese"}], tag:P("Watch total, not intake","راقب المجموع لا المدخول") },
+  chromium: { items:[{name:"Chromium",slug:"chromium"},{name:"Vitamin C",slug:"vitamin-c",dim:true}], tag:P("C may aid uptake","فيتامين سي قد يساعد") },
+  molybdenum: { items:[{name:"Molybdenum",slug:"molybdenum"}], tag:P("Food covers it","الغذاء يغطيه") },
+  boron: { items:[{name:"Boron",slug:"boron"}], tag:P("Food only","من الغذاء فقط") },
+  glycine: { items:[{name:"Glycine",slug:"glycine"},{name:"Collagen peptides",slug:"collagen-peptides",dim:true}], tag:P("Overlapping sources","مصادر متداخلة") },
+  taurine: { items:[{name:"Taurine",slug:"taurine"}], tag:P("Nothing to pair it with","لا شيء يُقرن به") },
+  nac: { items:[{name:"NAC",slug:"nac"}], tag:P("Treat as a medicine","تعامل معه كدواء") },
+  coq10: { items:[{name:"CoQ10",slug:"coq10"},{name:"A fatty meal",slug:null}], tag:P("Fat-soluble","ذائب في الدهون") },
+  "omega-3": { items:[{name:"Omega-3",slug:"omega-3"},{name:"A fatty meal",slug:null}], tag:P("Fat-soluble","ذائب في الدهون") },
   probiotics: {
     items: [
       { name: "A named strain", slug: "probiotics" },
@@ -274,6 +286,134 @@ export const pairings = {
                "فيتامين سي لازم لتخليق الكولاجين طبيعياً في الجسم. أما تحسّن النتائج عند جمعهما في مكمل فغير مثبت.") },
     ],
     keepApart: [],
+  },
+
+  potassium: {
+    pairWith: [
+      { with: "Magnesium", slug: "magnesium", strength: "established", source: NIH.mg,
+        why: P("Low magnesium makes it hard to correct low potassium. Clinically the two are usually addressed together.",
+               "انخفاض المغنيسيوم يصعّب تصحيح انخفاض البوتاسيوم، وسريرياً يُعالجان معاً عادة.") },
+    ],
+    keepApart: [
+      { from: "Potassium-sparing diuretics and ACE inhibitors", slug: null, source: null, strength: "caution",
+        why: P("These raise blood potassium. Adding a supplement on top can push it dangerously high. This needs medical supervision.",
+               "ترفع بوتاسيوم الدم، وإضافة مكمل فوقها قد ترفعه لمستوى خطر. يحتاج إشرافاً طبياً.") },
+    ],
+  },
+
+  iodine: {
+    pairWith: [
+      { with: "Selenium", slug: "selenium", strength: "established", source: NIH.se,
+        why: P("The enzymes that convert thyroid hormone are selenium-dependent, so thyroid function needs both.",
+               "الإنزيمات التي تحوّل هرمون الغدة تعتمد على السيلينيوم، فوظيفة الغدة تحتاج الاثنين.") },
+    ],
+    keepApart: [
+      { from: "Guesswork in thyroid disease", slug: null, source: null, strength: "caution",
+        why: P("Both too little and too much iodine disturb the thyroid. If you have thyroid disease or take levothyroxine, changes belong with your prescriber.",
+               "القليل والكثير من اليود كلاهما يربك الغدة. إذا كان لديك مرض بالغدة أو تأخذ ليفوثيروكسين، فالتغييرات تكون مع طبيبك.") },
+    ],
+  },
+
+  phosphorus: {
+    pairWith: [
+      { with: "Calcium, as food", slug: "calcium", strength: "established", source: NIH.ca,
+        why: P("The two form the mineral structure of bone together. Ordinary diets supply both.",
+               "الاثنان يشكلان البنية المعدنية للعظم معاً، والوجبات الاعتيادية توفرهما.") },
+    ],
+    keepApart: [
+      { from: "Phosphate additives", slug: null, source: null, strength: "caution",
+        why: P("Additive phosphate in processed food and cola is absorbed more completely than the natural form, and is the usual source of excess.",
+               "فوسفات الإضافات في الأطعمة المصنعة والكولا تُمتص أكثر من الشكل الطبيعي، وهي المصدر المعتاد للزيادة.") },
+    ],
+  },
+
+  manganese: {
+    pairWith: [],
+    keepApart: [
+      { from: "Stacking multivitamins", slug: null, source: null, strength: "caution",
+        why: P("Manganese appears in many products at once. The upper limit is reached by accumulation, not by any single dose.",
+               "المنغنيز موجود في منتجات كثيرة معاً، والحد الأعلى يُبلغ بالتراكم لا بجرعة واحدة.") },
+    ],
+  },
+
+  chromium: {
+    pairWith: [
+      { with: "Vitamin C", slug: "vitamin-c", strength: "plausible", source: NIH.c,
+        why: P("Vitamin C taken alongside can raise chromium absorption. Whether that changes any outcome is a separate question.",
+               "فيتامين سي معه قد يرفع امتصاص الكروم. أما هل يغيّر ذلك أي نتيجة فسؤال منفصل.") },
+    ],
+    keepApart: [
+      { from: "Insulin and metformin", slug: null, source: null, strength: "caution",
+        why: P("Chromium can affect blood glucose. Combining it with glucose-lowering medicines risks hypoglycaemia and needs clinical advice.",
+               "الكروم قد يؤثر على سكر الدم، وجمعه مع أدوية خفض السكر يخاطر بهبوط السكر ويحتاج مشورة طبية.") },
+      { from: "Levothyroxine", slug: null, source: null, strength: "caution",
+        why: P("Chromium picolinate can reduce levothyroxine absorption. Separate them.",
+               "بيكولينات الكروم قد تقلل امتصاص الليفوثيروكسين. افصل بينهما.") },
+    ],
+  },
+
+  molybdenum: {
+    pairWith: [],
+    keepApart: [
+      { from: "High supplemental doses", slug: "copper", source: NIH.cu, strength: "caution",
+        why: P("At supplemental extremes molybdenum interferes with copper. Dietary amounts do not.",
+               "عند الجرعات المكملة القصوى يتعارض الموليبدينوم مع النحاس، أما الكميات الغذائية فلا.") },
+    ],
+  },
+
+  boron: {
+    pairWith: [],
+    keepApart: [
+      { from: "High-dose products", slug: null, source: null, strength: "caution",
+        why: P("High boron intake can interfere with iodine absorption. There is no established requirement to justify pushing intake up.",
+               "المدخول العالي من البورون قد يتعارض مع امتصاص اليود، ولا يوجد احتياج ثابت يبرر رفعه.") },
+    ],
+  },
+
+  glycine: {
+    pairWith: [
+      { with: "Collagen peptides", slug: "collagen-peptides", strength: "established", source: null,
+        why: P("Collagen is the richest dietary source of glycine, so the two overlap. Taking both is duplication rather than synergy.",
+               "الكولاجين أغنى مصدر غذائي بالغلايسين، فالاثنان متداخلان. أخذهما معاً تكرار لا تآزر.") },
+    ],
+    keepApart: [],
+  },
+
+  taurine: { pairWith: [], keepApart: [] },
+
+  nac: {
+    pairWith: [],
+    keepApart: [
+      { from: "Self-directed daily use", slug: null, source: null, strength: "caution",
+        why: P("NAC has defined clinical uses and its regulatory status varies by country. Anyone with asthma or on regular medicines should ask a clinician first.",
+               "لـ NAC استخدامات سريرية محددة ووضعه التنظيمي يختلف بين الدول. من لديه ربو أو يأخذ أدوية منتظمة يراجع طبيبه أولاً.") },
+    ],
+  },
+
+  coq10: {
+    pairWith: [
+      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+        why: P("CoQ10 is fat-soluble and absorbed poorly on its own. Food with fat improves it.",
+               "كو إنزيم Q10 ذائب في الدهون وامتصاصه ضعيف وحده، والطعام الدهني يحسّنه.") },
+    ],
+    keepApart: [
+      { from: "Warfarin", slug: null, source: null, strength: "caution",
+        why: P("CoQ10 may interact with warfarin. Anyone on anticoagulants should ask a clinician before starting it.",
+               "قد يتفاعل مع الوارفارين. من يأخذ مميعات الدم يراجع طبيبه قبل البدء.") },
+    ],
+  },
+
+  "omega-3": {
+    pairWith: [
+      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+        why: P("Absorption improves with a fatty meal, and reflux is less likely.",
+               "الامتصاص يتحسن مع وجبة دهنية، ويقل احتمال الارتجاع.") },
+    ],
+    keepApart: [
+      { from: "Anticoagulants and upcoming surgery", slug: null, source: null, strength: "caution",
+        why: P("High doses may affect bleeding time. Discuss with a clinician before surgery or alongside blood thinners.",
+               "الجرعات العالية قد تؤثر على زمن النزف. ناقش الأمر مع طبيبك قبل الجراحة أو مع مميعات الدم.") },
+    ],
   },
 
   probiotics: {
