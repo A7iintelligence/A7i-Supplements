@@ -70,6 +70,7 @@ export const stacks = {
     items: [
       { name: "Calcium", slug: "calcium" },
       { name: "Vitamin D3", slug: "vitamin-d3" },
+      { name: "K2", slug: "vitamin-k2", dim: true },
     ],
     tag: P("500 mg or less at a time", "500 ملغ أو أقل في المرة"),
   },
@@ -116,6 +117,7 @@ export const stacks = {
   sodium: { items:[{name:"Sodium",slug:"sodium"},{name:"Potassium",slug:"potassium"}], tag:P("The ratio matters","النسبة هي المهمة") },
   msm: { items:[{name:"MSM",slug:"msm"}], tag:P("Nothing to pair it with","لا شيء يُقرن به") },
   "alpha-lipoic-acid": { items:[{name:"Alpha lipoic acid",slug:"alpha-lipoic-acid"}], tag:P("Often taken away from food","يؤخذ غالباً بعيداً عن الطعام") },
+  "vitamin-k2": { items:[{name:"Vitamin K2",slug:"vitamin-k2"},{name:"Vitamin D3",slug:"vitamin-d3",dim:true}], tag:P("Often sold together","يُباعان معاً غالباً") },
   glucosamine: { items:[{name:"Glucosamine",slug:"glucosamine"},{name:"Chondroitin",slug:null,dim:true}], tag:P("Usually sold together","يُباعان معاً عادة") },
   probiotics: {
     items: [
@@ -213,6 +215,9 @@ export const pairings = {
       { with: "Vitamin D3", slug: "vitamin-d3", strength: "established", source: NIH.d,
         why: P("Vitamin D is required for normal calcium absorption.",
                "فيتامين د لازم لامتصاص الكالسيوم الطبيعي.") },
+      { with: "Vitamin K2", slug: "vitamin-k2", strength: "plausible", source: null,
+        why: P("K2 activates the proteins that direct calcium into bone rather than soft tissue. The mechanism is sound. Trials showing that adding K2 to calcium changes fracture or artery outcomes are not there.",
+               "ك2 ينشّط البروتينات التي توجّه الكالسيوم إلى العظم بدل الأنسجة الرخوة. الآلية سليمة، لكن التجارب التي تُظهر أن إضافة ك2 للكالسيوم تغيّر نتائج الكسور أو الشرايين غير متوفرة.") },
       { with: "Doses of 500 mg or less", slug: null, strength: "established", source: NIH.ca,
         why: P("Absorption efficiency is highest at smaller single doses. Splitting a large daily amount is more effective than one sitting.",
                "كفاءة الامتصاص أعلى في الجرعات المفردة الأصغر. تقسيم الكمية اليومية أفضل من جرعة واحدة.") },
@@ -451,6 +456,22 @@ export const pairings = {
       { from: "Diabetes medicines", slug: null, source: null, strength: "caution",
         why: P("Alpha lipoic acid can lower blood glucose. Combined with insulin or other glucose-lowering drugs it risks hypoglycaemia.",
                "قد يخفض حمض ألفا ليبويك سكر الدم، وجمعه مع الإنسولين أو أدوية خفض السكر يخاطر بهبوط السكر.") },
+    ],
+  },
+
+  "vitamin-k2": {
+    pairWith: [
+      { with: "Vitamin D3", slug: "vitamin-d3", strength: "plausible", source: null,
+        why: P("D3 raises calcium absorption and K2 is involved in where that calcium ends up. The pairing is reasonable in theory and commonly sold. Human outcome evidence for the combination is not settled.",
+               "د3 يرفع امتصاص الكالسيوم، وك2 يشارك في تحديد وجهته. الاقتران معقول نظرياً ويُباع كثيراً، لكن الدليل البشري على التركيبة غير محسوم.") },
+      { with: "A meal containing fat", slug: null, strength: "established", source: null,
+        why: P("K2 is fat-soluble, so absorption improves alongside dietary fat.",
+               "ك2 ذائب في الدهون، فامتصاصه يتحسن مع دهون الطعام.") },
+    ],
+    keepApart: [
+      { from: "Warfarin", slug: null, source: null, strength: "caution",
+        why: P("Vitamin K directly opposes warfarin and alters INR. Anyone on warfarin must not change vitamin K intake without their prescriber. This is the most important thing on this page.",
+               "فيتامين ك يعاكس الوارفارين مباشرة ويغيّر INR. من يأخذ الوارفارين يجب ألا يغيّر مدخوله من فيتامين ك دون طبيبه. هذه أهم نقطة في الصفحة.") },
     ],
   },
 

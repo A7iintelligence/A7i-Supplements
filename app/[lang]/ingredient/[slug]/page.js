@@ -258,6 +258,31 @@ export default async function IngredientPage({ params }) {
         </section>
       )}
 
+      {d.hormoneNote && (
+        <section className="claimCheck">
+          <p className="eyebrow">{ar ? "فحص ادعاء" : "CLAIM CHECK"}</p>
+          <h2>{d.hormoneNote.claim}</h2>
+          <div className="ccRows">
+            <div>
+              <small>{ar ? "الآلية المقترحة" : "The proposed mechanism"}</small>
+              <p>{d.hormoneNote.mechanism}</p>
+            </div>
+            <div>
+              <small>{ar ? "ما حجم الدليل" : "How big is the evidence"}</small>
+              <p>{d.hormoneNote.evidence}</p>
+            </div>
+            <div className="ccPremise">
+              <small>{ar ? "المشكلة في الافتراض نفسه" : "The problem with the premise"}</small>
+              <p>{d.hormoneNote.premise}</p>
+            </div>
+          </div>
+          <div className="ccVerdict">
+            <small>{ar ? "موقف A7i" : "A7i POSITION"}</small>
+            <strong>{d.hormoneNote.verdict}</strong>
+          </div>
+        </section>
+      )}
+
       <section className="deeperSection">
         <p className="eyebrow">{t.whatNext}</p>
 
@@ -312,6 +337,12 @@ export default async function IngredientPage({ params }) {
               <small>{ar ? "قد يقلل الامتصاص" : "CAN REDUCE UPTAKE"}</small>
               <BulletList items={d.absorption.reduces} empty={ar ? "ما فيه قاعدة عامة." : "No useful universal rule."} />
             </div>
+            {d.absorption.note && (
+              <div className="absNote">
+                <small>{ar ? "للعلم، وليست توصية" : "NOTED, NOT RECOMMENDED"}</small>
+                <BulletList items={d.absorption.note} empty="" />
+              </div>
+            )}
           </div>
         </details>
 

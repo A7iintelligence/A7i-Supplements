@@ -37,6 +37,7 @@ export const verdicts = {
   msm: "thin",
   "alpha-lipoic-acid": "supplement-helps",
   glucosamine: "thin",
+  "vitamin-k2": "supplement-helps",
 };
 
 // The browsable library. `slug` present = reviewed guide exists.
@@ -60,7 +61,7 @@ export const browseIndex = {
   vitamins: [
     { group:{en:"Fat-soluble", ar:"ذائبة في الدهون"}, items:[
       L("Vitamin A"), L("Vitamin D3",null,"vitamin-d3"), L("Vitamin D2"),
-      L("Vitamin E"), L("Vitamin K1"), L("Vitamin K2"),
+      L("Vitamin E"), L("Vitamin K1"), L("Vitamin K2",null,"vitamin-k2"),
     ]},
     { group:{en:"Water-soluble", ar:"ذائبة في الماء"}, items:[
       L("Vitamin C",null,"vitamin-c"),
@@ -206,6 +207,7 @@ export const aliases = {
   msm: ["methylsulfonylmethane","sulfur","sulphur"],
   "alpha-lipoic-acid": ["ala","lipoic","alpha lipoic"],
   glucosamine: ["chondroitin","joint"],
+  "vitamin-k2": ["k2","menaquinone","mk-7","mk7","mk-4","vitamin k"],
   "omega-3": ["omega3","omega 3","fish oil","epa","dha","krill"],
   probiotics: ["probiotic","pro biotic","good bacteria","gut bacteria","flora"],
 };

@@ -370,3 +370,18 @@ body{background-attachment:scroll}
 .explainerLink .eyebrow{display:block;color:var(--brass-2);margin-bottom:8px}
 .explainerLink strong{display:block;font:400 26px var(--font-display),Georgia,serif;letter-spacing:-.02em;margin-bottom:6px}
 .explainerLink span:last-child{font-size:14px;color:var(--muted)}
+
+/* ===== V14: claim check ===== */
+.claimCheck{margin-top:14px;padding:26px;border:1px solid rgba(239,159,39,.28);border-radius:20px;background:linear-gradient(158deg,rgba(239,159,39,.08),rgba(255,255,255,.02))}
+.claimCheck h2{margin:0 0 20px;font:400 clamp(23px,3vw,32px)/1.25 var(--font-display),Georgia,serif;letter-spacing:-.02em;max-width:44ch}
+.ccRows{border-top:1px solid var(--line)}
+.ccRows>div{padding:15px 0;border-bottom:1px solid var(--line)}
+.ccRows small{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.ccRows p{margin:0;font-size:15px;line-height:1.65;color:rgba(242,239,231,.78);max-width:72ch}
+.ccPremise small{color:var(--warn-ink)!important}
+.ccVerdict{margin-top:20px;padding:17px 19px;border-radius:12px;background:rgba(143,214,178,.10);border-left:2px solid var(--green)}
+.ccVerdict small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.ccVerdict strong{display:block;font:400 19px/1.45 var(--font-display),Georgia,serif;color:var(--ink);max-width:66ch}
+.absNote{grid-column:1/-1;margin-top:8px;padding:13px 15px;border-radius:10px;background:rgba(239,159,39,.09)}
+.absNote small{color:var(--warn-ink)!important}
+@media(max-width:620px){.claimCheck{padding:19px}}
