@@ -50,7 +50,7 @@ export const stacks = {
       { name: "Magnesium", slug: "magnesium" },
       { name: "Vitamin D3", slug: "vitamin-d3", dim: true },
     ],
-    tag: P("If you take vitamin D", "إن كنت تتناول فيتامين د"),
+    tag: P("If you take vitamin D", "إذا كنت تأخذ فيتامين د"),
   },
   iron: {
     items: [
@@ -64,7 +64,7 @@ export const stacks = {
       { name: "Zinc", slug: "zinc" },
       { name: "Copper", slug: "copper" },
     ],
-    tag: P("If supplementing long term", "عند الاستخدام طويل الأمد"),
+    tag: P("If supplementing long term", "إذا كنت تأخذه لفترة طويلة"),
   },
   calcium: {
     items: [
@@ -73,8 +73,41 @@ export const stacks = {
     ],
     tag: P("500 mg or less at a time", "500 ملغ أو أقل في المرة"),
   },
+  "vitamin-c": {
+    items: [
+      { name: "Vitamin C", slug: "vitamin-c" },
+      { name: "Plant iron", slug: "iron" },
+    ],
+    tag: P("Improves iron from plants", "يرفع امتصاص الحديد النباتي"),
+  },
+  "collagen-peptides": {
+    items: [
+      { name: "Collagen peptides", slug: "collagen-peptides" },
+      { name: "Vitamin C", slug: "vitamin-c", dim: true },
+      { name: "Copper", slug: "copper", dim: true },
+    ],
+    tag: P("Both on mechanism only", "الاثنان على أساس الآلية فقط"),
+  },
+  copper: {
+    items: [{ name: "Copper", slug: "copper" }],
+    tag: P("Food usually covers it", "الغذاء يغطيه عادة"),
+  },
+  selenium: {
+    items: [{ name: "Selenium", slug: "selenium" }],
+    tag: P("Dose matters more than pairing", "الجرعة أهم من الاقتران"),
+  },
+  creatine: {
+    items: [{ name: "Creatine monohydrate", slug: "creatine" }],
+    tag: P("Nothing to pair it with", "لا شيء يُقرن به"),
+  },
+  probiotics: {
+    items: [
+      { name: "A named strain", slug: "probiotics" },
+      { name: "Fibre", slug: null, dim: true },
+    ],
+    tag: P("Strain decides everything", "السلالة هي الفيصل"),
+  },
 };
-
 export const pairings = {
   "vitamin-d3": {
     pairWith: [

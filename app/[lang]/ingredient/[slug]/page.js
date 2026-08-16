@@ -185,13 +185,13 @@ export default async function IngredientPage({ params }) {
                 <span className="stackTag">{ar ? stack.tag.ar : stack.tag.en}</span>
               </div>
             ) : (
-              <h2>{ar ? "مع ماذا يُؤخذ، وعن ماذا يُفصل" : "What to pair it with, and what to keep it away from"}</h2>
+              <h2>{ar ? "مع وش تاخذه، وعن وش تبعده" : "What to pair it with, and what to keep it away from"}</h2>
             )}
           </div>
 
           <div className="pairGrid">
             <div className="pairCol">
-              <p className="pairColLabel good">{ar ? "اقترنه بـ" : "Pair with"}</p>
+              <p className="pairColLabel good">{ar ? "تناوله مع" : "Pair with"}</p>
               {pair.pairWith.length === 0 && (
                 <p className="quietText">{ar ? "لا اقتران عام مفيد." : "No useful general pairing."}</p>
               )}
@@ -225,7 +225,7 @@ export default async function IngredientPage({ params }) {
             </div>
 
             <div className="pairCol">
-              <p className="pairColLabel warn">{ar ? "افصله عن" : "Keep apart from"}</p>
+              <p className="pairColLabel warn">{ar ? "لا تجمعه مع" : "Keep apart from"}</p>
               {pair.keepApart.length === 0 && (
                 <p className="quietText">{ar ? "لا قاعدة فصل عامة." : "No general separation rule."}</p>
               )}
@@ -306,11 +306,11 @@ export default async function IngredientPage({ params }) {
           <div className="deeperBody deeperSplit">
             <div>
               <small>{ar ? "قد يساعد" : "MAY HELP"}</small>
-              <BulletList items={d.absorption.helps} empty={ar ? "لا توجد قاعدة عامة." : "No useful universal rule."} />
+              <BulletList items={d.absorption.helps} empty={ar ? "ما فيه قاعدة عامة." : "No useful universal rule."} />
             </div>
             <div>
               <small>{ar ? "قد يقلل الامتصاص" : "CAN REDUCE UPTAKE"}</small>
-              <BulletList items={d.absorption.reduces} empty={ar ? "لا توجد قاعدة عامة." : "No useful universal rule."} />
+              <BulletList items={d.absorption.reduces} empty={ar ? "ما فيه قاعدة عامة." : "No useful universal rule."} />
             </div>
           </div>
         </details>
@@ -333,7 +333,7 @@ export default async function IngredientPage({ params }) {
           <summary>{t.modInteractions}</summary>
           <div className="deeperBody">
             <small>{ar ? "افصل بينهما / تحقق" : "KEEP APART / CHECK"}</small>
-            <BulletList items={d.absorption.separate} empty={ar ? "لا توجد قاعدة فصل عامة." : "No universal separation rule."} />
+            <BulletList items={d.absorption.separate} empty={ar ? "ما فيه قاعدة فصل عامة." : "No universal separation rule."} />
           </div>
         </details>
 
@@ -342,10 +342,10 @@ export default async function IngredientPage({ params }) {
           <div className="deeperBody">
             <p>
               {ar
-                ? "استشر طبيبك أو الصيدلي أو مختصاً صحياً مؤهلاً عند وجود مرض أو أدوية أو حمل أو أعراض أو شك في وجود نقص."
+                ? "راجع طبيبك أو الصيدلي إذا كان عندك مرض أو تأخذ أدوية أو كنتِ حاملاً أو عندك أعراض أو تشك في نقص."
                 : "Ask your doctor, pharmacist or qualified healthcare professional if you have a medical condition, take medicines, are pregnant, have symptoms or suspect a deficiency."}
             </p>
-            <BulletList items={d.absorption.separate} empty={ar ? "لا تحذيرات فصل عامة." : "No universal separation warnings."} />
+            <BulletList items={d.absorption.separate} empty={ar ? "ما فيه تحذيرات فصل عامة." : "No universal separation warnings."} />
           </div>
         </details>
 
@@ -364,12 +364,12 @@ export default async function IngredientPage({ params }) {
       <aside className="medicalCallout">
         <strong>
           {ar
-            ? "سياقك الشخصي أهم من صفحة ويب."
+            ? "حالتك الشخصية أهم من أي صفحة ويب."
             : "Your individual context matters more than a webpage."}
         </strong>
         <p>
           {ar
-            ? "استشر طبيبك أو الصيدلي أو مختصاً صحياً مؤهلاً قبل بدء أو تغيير أي مكمل."
+            ? "راجع طبيبك أو الصيدلي قبل أن تبدأ أي مكمّل أو تغيّره."
             : "Ask your doctor, pharmacist or qualified healthcare professional before starting or changing any supplement."}
         </p>
       </aside>
