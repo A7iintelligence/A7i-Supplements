@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./ingredient.css";
 
 export const metadata = {
   metadataBase: new URL("https://supplements.a7iintelligence.com"),
@@ -9,7 +10,7 @@ export const metadata = {
   },
 
   description:
-    "Understand supplements, food sources, evidence, forms, absorption and timing without the noise.",
+    "Understand supplements, food sources, evidence, forms, absorption, interactions and timing without the noise.",
 };
 
 export default function RootLayout({ children }) {

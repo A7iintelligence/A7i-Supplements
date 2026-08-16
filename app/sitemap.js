@@ -1,4 +1,5 @@
 import { categories, reviewed } from "@/data/catalog";
+import { goals } from "@/data/goals";
 
 export default function sitemap() {
   const base = "https://supplements.a7iintelligence.com";
@@ -30,5 +31,14 @@ export default function sitemap() {
     }))
   );
 
-  return [...home, ...categoryUrls, ...ingredientUrls];
+  const goalUrls = langs.flatMap((lang) =>
+    goals.map((g) => ({
+      url: `${base}/${lang}/goal/${g.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    }))
+  );
+
+  return [...home, ...goalUrls, ...categoryUrls, ...ingredientUrls];
 }
