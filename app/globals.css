@@ -757,3 +757,41 @@ html[dir="rtl"] .heroBand .heroKicker{letter-spacing:normal}
   .rulesBlock .rules small{font-size:52px}
   .foodList div span{font-size:19px}
 }
+
+/* =====================================================================
+   V21: fix leftovers from the dark theme + letterpress on small titles
+   ===================================================================== */
+
+/* --- Invisible text. Both were still set to the old bone-on-carbon values
+       and were rendering near-white on a white card. --- */
+.stackName.dim{color:var(--stone);opacity:1}
+.pairSrcNone{color:var(--stone)}
+
+/* Dimmed stack chips need to read as "included, but weaker evidence",
+   not as "broken". Stone plus a dotted underline says optional. */
+.stackName.dim{
+  border-bottom:1px dotted rgba(142,145,142,.6);
+  padding-bottom:2px;
+}
+
+/* --- Letterpress on the small titles. On a light ground the technique that
+       works is a white highlight below the glyph plus a soft dark above,
+       which reads as ink pressed into paper. A plain drop shadow would
+       just look blurred. --- */
+.eyebrow,.browseGroup .eyebrow,.pairColLabel,.bfFood small,.ccVerdict small,
+.infoCard small,.fvsGrid small,.deeperBody small,.indicators small,
+.ccRows small,.deepCards small,.answerChips small,.absNote small,
+.enzDeficit span,.srcList span,.heroKicker,.stackTag,.enzDep{
+  text-shadow:0 1px 0 rgba(255,255,255,.95), 0 1px 2px rgba(12,12,13,.14);
+}
+
+/* Slightly more ink so the letterpress has something to press */
+.eyebrow,.browseGroup .eyebrow{color:#6E716E}
+.infoCard small,.fvsGrid small,.deeperBody small,.indicators small,
+.ccRows small,.deepCards small,.answerChips small{color:#6E716E}
+
+/* On the Carbon band and the Mineral Green card the effect inverts */
+.heroBand .heroKicker,.infoCard.dark small,.interactionCard.timing small,
+.footer strong,.footer p{
+  text-shadow:0 1px 2px rgba(0,0,0,.45);
+}
