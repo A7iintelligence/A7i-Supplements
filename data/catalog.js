@@ -1,4 +1,5 @@
 import { aliases } from "./browse";
+import { masterIndex } from "./index-master";
 import { extraReviewed } from "./catalog-extra";
 import { arCore } from "./catalog-ar-core";
 import { arExtra } from "./catalog-ar-extra";
@@ -435,6 +436,7 @@ export function searchKnowledge(query,category){
   if(!q)return [];
   const all=[
     ...reviewed.map(r=>({name:r.en.name,category:r.category,slug:r.slug,status:"reviewed",aliases:[...r.names,...(aliases[r.slug]||[])]})),
+    ...masterIndex.filter(e=>!e.slug).map(e=>({name:e.name,category:e.category,slug:null,status:"indexed",aliases:e.aliases||[]})),
     ...hiddenIndex
   ];
   const seen=new Set();

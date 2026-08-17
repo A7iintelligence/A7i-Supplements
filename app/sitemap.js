@@ -40,6 +40,11 @@ export default function sitemap() {
     }))
   );
 
+  const indexUrls = langs.map((lang) => ({
+    url: `${base}/${lang}/ingredients`,
+    lastModified: now, changeFrequency: "weekly", priority: 0.8,
+  }));
+
   const rulesUrls = langs.map((lang) => ({
     url: `${base}/${lang}/a7i-rules`,
     lastModified: now, changeFrequency: "yearly", priority: 0.5,
@@ -52,5 +57,5 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...home, ...rulesUrls, ...explainerUrls, ...goalUrls, ...categoryUrls, ...ingredientUrls];
+  return [...home, ...indexUrls, ...rulesUrls, ...explainerUrls, ...goalUrls, ...categoryUrls, ...ingredientUrls];
 }

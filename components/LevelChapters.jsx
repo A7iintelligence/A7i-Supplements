@@ -50,10 +50,8 @@ export default function LevelChapters({ lang, note }) {
 
                       {g.isLibrary ? (
                         <p className="chLibrary">
-                          <Link href={`/${lang}#search`}>
-                            {ar
-                              ? "ابحث في المكتبة الكاملة للمكوّنات المفردة ←"
-                              : "Search the full single ingredient library →"}
+                          <Link href={`/${lang}/ingredients`}>
+                            {ar ? "كل المكوّنات A–Z ←" : "All ingredients A–Z →"}
                           </Link>
                         </p>
                       ) : (

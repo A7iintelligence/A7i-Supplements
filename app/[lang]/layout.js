@@ -24,7 +24,7 @@ export default async function LangLayout({ children, params }) {
           </Link>
           <nav className="miniNav" aria-label="Primary">
             <Link href={`/${lang}#search`}>{t.navSearch}</Link>
-            <Link href={`/${lang}#explore`}>{t.navExplore}</Link>
+            <Link href={`/${lang}/ingredients`}>{t.navExplore}</Link>
             <LanguageToggle lang={lang} />
           </nav>
         </header>

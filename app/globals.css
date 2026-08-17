@@ -1363,3 +1363,41 @@ html[dir="rtl"] .ingredientNav a{letter-spacing:normal}
 .ingredientNav a:focus-visible{outline:2px solid var(--signal);outline-offset:-2px}
 [id]{scroll-margin-top:132px}
 @media(max-width:620px){.ingredientNav{top:70px}.ingredientNav a{padding:11px 13px;font-size:11px}}
+
+/* =====================================================================
+   V29: A–Z reference index
+   ===================================================================== */
+.azPage{padding:40px 0 96px}
+.azControls{margin-top:clamp(26px,4vw,42px)}
+.azSearch{max-width:520px}
+.azCats{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.azCats button{
+  border:1px solid var(--line);background:transparent;border-radius:999px;
+  padding:7px 13px;font-size:12px;color:var(--muted);cursor:pointer;
+}
+.azCats button:hover{border-color:var(--carbon);color:var(--carbon)}
+.azCats button.on{background:var(--carbon);color:var(--bone);border-color:var(--carbon)}
+.azCats button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.azCount{margin:20px 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--stone)}
+html[dir="rtl"] .azCount{letter-spacing:normal}
+
+.azGroup{display:grid;grid-template-columns:78px 1fr;gap:clamp(14px,2.5vw,32px);
+  padding:22px 0;border-top:1px solid var(--line)}
+.azLetter{
+  margin:0;font:400 clamp(30px,4vw,52px)/1 var(--font-display),Georgia,serif;
+  letter-spacing:-.04em;color:var(--stone);
+}
+.azGroup ul{list-style:none;margin:0;padding:0;
+  columns:2;column-gap:clamp(20px,3vw,44px)}
+.azGroup li{break-inside:avoid;border-bottom:1px solid rgba(12,12,13,.06)}
+.azLink{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 2px;text-decoration:none;font-size:15px;color:var(--carbon)}
+.azLink em{font-style:normal;color:var(--signal);opacity:0;transition:opacity .2s ease,transform .2s ease}
+.azLink:hover{color:var(--signal)}
+.azLink:hover em{opacity:1;transform:translateX(3px)}
+.azPlain{display:block;padding:9px 2px;font-size:15px;color:var(--stone)}
+@media(max-width:820px){
+  .azGroup{grid-template-columns:1fr;gap:6px}
+  .azGroup ul{columns:1}
+  .azLetter{font-size:26px}
+}
