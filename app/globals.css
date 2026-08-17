@@ -531,7 +531,6 @@ html[dir="rtl"] .bfFood small{letter-spacing:normal}
   --mineral:#1E3D34;
   --signal:#2D5BFF;
   --stone:#8E918E;
-  --clay:#8A5A1E;
 
   --paper:var(--bone);
   --white:#FFFFFF;
@@ -546,7 +545,7 @@ html[dir="rtl"] .bfFood small{letter-spacing:normal}
 
   --good-bg:rgba(30,61,52,.10);   --good-ink:#1E3D34;
   --info-bg:rgba(45,91,255,.10);  --info-ink:#2246C7;
-  --warn-bg:rgba(138,90,30,.11);  --warn-ink:#7A4E14;
+  --warn-bg:rgba(12,12,13,.055);  --warn-ink:#0C0C0D;
   --muted-bg:rgba(142,145,142,.15); --muted-ink:#5E615E;
 }
 
@@ -1148,3 +1147,49 @@ html[dir="rtl"] .ruleText{letter-spacing:normal;line-height:1.4}
 .rulesScroll li{border-top-color:var(--line)}
 .ruleText{color:var(--carbon)}
 .ruleNum{color:var(--signal)}
+
+/* =====================================================================
+   V26: Caution is Carbon, not a colour.
+   The palette has no warning hue, and inventing one puts an eighth colour
+   in the system. Instead caution takes full Carbon ink against Stone
+   surroundings, so it reads as the most serious element on the page
+   through contrast rather than through hue. Every state also carries a
+   text label, so nothing depends on colour alone.
+   ===================================================================== */
+
+:root{
+  --warn-bg:rgba(12,12,13,.055);
+  --warn-ink:var(--carbon);
+}
+
+/* caution blocks: Carbon rule, Carbon label, Carbon body */
+.redFlag,.bfNot,.absNote{background:rgba(12,12,13,.05)}
+.redFlag{border-left:2px solid var(--carbon)}
+.bfNot{border-left-color:var(--carbon)}
+.redFlag p{color:var(--carbon)}
+.bfNot .eyebrow{color:var(--carbon)!important}
+.bfNot .bfOutcome{color:var(--carbon)}
+.bfNot p{color:var(--muted)}
+.rfMark{background:var(--carbon);color:var(--bone)}
+.absNote small{color:var(--carbon)!important}
+.pairColLabel.warn{color:var(--carbon)}
+
+/* claim check: neutral paper, Carbon emphasis */
+.claimCheck{background:rgba(12,12,13,.03);border-color:rgba(12,12,13,.14)}
+.ccPremise small{color:var(--carbon)!important}
+.researchWarning{color:var(--carbon)!important;font-weight:600}
+.indexCloud .dangerTag{border-color:rgba(12,12,13,.35);color:var(--carbon)}
+
+/* verdict + grade badges: the clinical one is the loudest by being solid */
+.verdict.v-warn{background:var(--carbon);color:var(--bone)}
+.verdict.v-good{background:rgba(30,61,52,.10);color:var(--mineral)}
+.verdict.v-info{background:rgba(45,91,255,.10);color:#2246C7}
+.verdict.v-muted{background:rgba(142,145,142,.16);color:#5E615E}
+
+html[dir="rtl"] .redFlag,html[dir="rtl"] .bfNot{
+  border-left:0;border-right:2px solid var(--carbon);
+}
+
+/* Clay retired entirely. Nothing in the system references it. */
+:root{--clay:var(--carbon)}
+.gc-energy{background:rgba(12,12,13,.055)}
