@@ -1134,3 +1134,17 @@ html[dir="rtl"] .ruleText{letter-spacing:normal;line-height:1.4}
   .heroMarkImg{width:clamp(130px,30vw,180px)}
   .heroLight{width:min(360px,72vw)}
 }
+
+/* =====================================================================
+   V25: Rules return to Bone. Carbon is reserved for the hero and footer,
+   so the page reads instrument → paper → instrument rather than
+   alternating dark bands.
+   ===================================================================== */
+.rulesBand{
+  background:linear-gradient(180deg,var(--bone) 0%,#F2EFE8 55%,var(--bone) 100%);
+  color:var(--carbon);
+}
+.rulesBand .eyebrow{color:var(--stone)}
+.rulesScroll li{border-top-color:var(--line)}
+.ruleText{color:var(--carbon)}
+.ruleNum{color:var(--signal)}
