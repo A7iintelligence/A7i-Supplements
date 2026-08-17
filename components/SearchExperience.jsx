@@ -46,7 +46,7 @@ function AnswerCard({ slug, lang }) {
   );
 }
 
-export default function SearchExperience({ lang, lockedCategory = null }) {
+export default function SearchExperience({ lang, lockedCategory = null, hideCategories = false }) {
   const t = getUi(lang);
   const ar = lang === "ar";
   const [query, setQuery] = useState("");
@@ -92,7 +92,7 @@ export default function SearchExperience({ lang, lockedCategory = null }) {
         )}
       </div>
 
-      {!lockedCategory && (
+      {!lockedCategory && !hideCategories && (
         <div className="categoryRail" id="explore" role="group" aria-label={t.navExplore}>
           <button type="button" className={category === null ? "active" : ""} onClick={() => setCategory(null)}>
             {t.allCategories}

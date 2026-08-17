@@ -8,6 +8,7 @@ import { getForms, formStrength } from "@/data/forms";
 import { getBestFor } from "@/data/best-for";
 import { gradeMeta } from "@/data/goals";
 import { pairNameAr, stackNameAr, formNameAr } from "@/data/pair-names-ar";
+import IngredientNav from "@/components/IngredientNav";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
 
@@ -66,6 +67,13 @@ export default async function IngredientPage({ params }) {
   const formList = getForms(slug);
   const bf = getBestFor(slug);
   const base = "https://supplements.a7iintelligence.com";
+  const navItems = [
+    { id: "overview", label: ar ? "نظرة عامة" : "Overview" },
+    { id: "best-for", label: ar ? "لماذا يؤخذ" : "Best for" },
+    { id: "pairing",  label: ar ? "الاقتران" : "Pairing" },
+    { id: "deeper",   label: ar ? "تفاصيل" : "Detail" },
+    { id: "sources",  label: ar ? "المصادر" : "Sources" },
+  ];
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -122,7 +130,9 @@ export default async function IngredientPage({ params }) {
         </ul>
       )}
 
-      <section className="ingredientGrid">
+      <IngredientNav items={navItems} lang={lang} />
+
+      <section className="ingredientGrid" id="overview">
         <article className="infoCard dark">
           <small>{ar ? "ما هو؟" : "WHAT IS IT?"}</small>
           <h2>{d.what}</h2>
@@ -150,7 +160,7 @@ export default async function IngredientPage({ params }) {
       </section>
 
       {bf && (
-        <section className="bestForSection">
+        <section className="bestForSection" id="best-for">
           <p className="eyebrow">{ar ? "لماذا يؤخذ" : "WHAT IT IS ACTUALLY GOOD FOR"}</p>
           <div className="bfList">
             {bf.best.map((b) => {
@@ -188,7 +198,7 @@ export default async function IngredientPage({ params }) {
 
 
       {(stack || (pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0))) && (
-        <section className="pairSection">
+        <section className="pairSection" id="pairing">
           <div className="pairHead">
             <p className="eyebrow">{ar ? "الاقتران" : "THE PAIRING"}</p>
             {stack ? (
@@ -300,7 +310,7 @@ export default async function IngredientPage({ params }) {
         </section>
       )}
 
-      <section className="deeperSection">
+      <section className="deeperSection" id="deeper">
         <p className="eyebrow">{t.whatNext}</p>
 
         <details className="deeper" name="deeper">
@@ -409,7 +419,7 @@ export default async function IngredientPage({ params }) {
         </details>
       </section>
 
-      <section className="sourcesBlock">
+      <section className="sourcesBlock" id="sources">
         <p className="eyebrow">{ar ? "المصادر" : "SOURCES"}</p>
         <p className="srcLead">
           {ar

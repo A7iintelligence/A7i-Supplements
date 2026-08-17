@@ -42,7 +42,7 @@ export default async function HomePage({ params }) {
 
       <div className="boneSheet">
         <section className="shell searchZone">
-          <SearchExperience lang={lang} />
+          <SearchExperience lang={lang} hideCategories />
         </section>
 
         <LevelChapters lang={lang} note={t.levelsNote} />
@@ -50,11 +50,14 @@ export default async function HomePage({ params }) {
         <section className="shell askedBlock">
           <p className="eyebrow">{t.askedEyebrow}</p>
           <ul className="askedList">
-            {questions.map(([q, slug]) => (
+            {questions.map(([q, tag, slug]) => (
               <li key={slug + q}>
                 <Link href={`/${lang}/ingredient/${slug}`}>
-                  <span>{q}</span>
-                  <em aria-hidden="true">{ar ? "←" : "→"}</em>
+                  <span className="qText">{q}</span>
+                  <span className="qMeta">
+                    <span className="qTag">{tag}</span>
+                    <em aria-hidden="true">{ar ? "←" : "→"}</em>
+                  </span>
                 </Link>
               </li>
             ))}

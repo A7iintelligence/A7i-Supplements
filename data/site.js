@@ -18,22 +18,25 @@ export const indicators = {
 
 export const askedQuestions = {
   en: [
-    ["Is collagen worth taking?", "collagen-peptides"],
-    ["Can I get enough magnesium from food?", "magnesium"],
-    ["What is the difference between D2 and D3?", "vitamin-d3"],
-    ["Does creatine timing matter?", "creatine"],
-    ["Why does probiotic strain matter?", "probiotics"],
-    ["What reduces iron absorption?", "iron"],
+    ["Is expensive magnesium actually better?", "Minerals · Forms", "magnesium"],
+    ["What should I not take at the same time as iron?", "Minerals · Interactions", "iron"],
+    ["Does collagen actually reach your skin?", "Peptides · Evidence", "collagen-peptides"],
+    ["Is creatine useful if I don't lift weights?", "Performance · Evidence", "creatine"],
+    ["Do I need vitamin K2 every time I take vitamin D?", "Vitamins · Pairing", "vitamin-k2"],
+    ["Can I get enough omega-3 without taking fish oil?", "Lipids · Food", "omega-3"],
+    ["Why do probiotic strains matter?", "Probiotics · Evidence", "probiotics"],
   ],
   ar: [
-    ["هل الكولاجين يستحق الشراء؟", "collagen-peptides"],
-    ["هل يكفي الغذاء لتغطية المغنيسيوم؟", "magnesium"],
-    ["ما الفرق بين د2 و د3؟", "vitamin-d3"],
-    ["هل يهمّ توقيت الكرياتين؟", "creatine"],
-    ["لماذا تهمّ سلالة البروبيوتيك؟", "probiotics"],
-    ["ما الذي يقلل امتصاص الحديد؟", "iron"],
+    ["هل المغنيسيوم الغالي أفضل فعلاً؟", "المعادن · الأشكال", "magnesium"],
+    ["وش اللي ما ينفع آخذه مع الحديد بنفس الوقت؟", "المعادن · التداخلات", "iron"],
+    ["هل يصل الكولاجين فعلاً إلى البشرة؟", "الببتيدات · الدليل", "collagen-peptides"],
+    ["هل يفيد الكرياتين إذا ما كنت أرفع أثقال؟", "الأداء · الدليل", "creatine"],
+    ["هل أحتاج ك2 كل مرة آخذ فيتامين د؟", "الفيتامينات · الاقتران", "vitamin-k2"],
+    ["هل يكفي الغذاء لأوميغا-3 بدون زيت السمك؟", "الدهون · الغذاء", "omega-3"],
+    ["ليش تفرق سلالة البروبيوتيك؟", "البروبيوتيك · الدليل", "probiotics"],
   ],
 };
+
 
 export const popularQuestions = {
   en: [

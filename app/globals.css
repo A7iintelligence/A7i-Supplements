@@ -1304,3 +1304,62 @@ html[dir="rtl"] .chCta{letter-spacing:normal}
   .chapterOpen{grid-template-columns:1fr;gap:24px}
   .rulesPage .rulesScroll li{grid-template-columns:1fr;gap:8px}
 }
+
+/* =====================================================================
+   V28: consolidation — one link component, question rows with
+   classification, sticky ingredient navigation
+   ===================================================================== */
+
+/* EntityLink: every internal blue link on the site renders from here */
+.entityLink{color:var(--signal);text-decoration:none}
+.entityLink.e-inline{border-bottom:1px solid rgba(45,91,255,.38);padding-bottom:1px}
+.entityLink.e-inline:hover{border-bottom-color:var(--signal)}
+.entityLink.e-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 11px;border:1px solid rgba(45,91,255,.28);border-radius:999px;
+  font-size:12.5px;background:rgba(45,91,255,.05);
+}
+.entityLink.e-tag:hover{border-color:var(--signal);background:rgba(45,91,255,.09)}
+.entityLink:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+
+/* Questions: editorial prompts with classification, not FAQ rows */
+.askedList a{align-items:flex-start}
+.qText{
+  font:400 clamp(22px,3.2vw,38px)/1.18 var(--font-display),Georgia,serif;
+  letter-spacing:-.025em;color:var(--carbon);max-width:22ch;
+}
+html[dir="rtl"] .qText{letter-spacing:normal;line-height:1.45}
+.qMeta{display:flex;align-items:center;gap:18px;flex-shrink:0;padding-top:6px}
+.qTag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);white-space:nowrap}
+html[dir="rtl"] .qTag{letter-spacing:normal}
+.askedList a:hover .qText{color:var(--signal)}
+@media(max-width:620px){
+  .askedList a{flex-direction:column;gap:10px}
+  .qMeta{padding-top:0;width:100%;justify-content:space-between}
+}
+
+/* Sticky ingredient navigation */
+.ingredientNav{
+  position:sticky;top:78px;z-index:20;margin:26px 0 8px;
+  background:rgba(246,244,239,.82);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.ingredientNav ul{
+  list-style:none;margin:0;padding:0;display:flex;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.ingredientNav ul::-webkit-scrollbar{display:none}
+.ingredientNav a{
+  display:block;white-space:nowrap;padding:13px 16px 12px;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--stone);text-decoration:none;font-weight:600;
+  border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease;
+}
+html[dir="rtl"] .ingredientNav a{letter-spacing:normal}
+.ingredientNav a:hover{color:var(--carbon)}
+.ingredientNav a.on{color:var(--carbon);border-bottom-color:var(--signal)}
+.ingredientNav a:focus-visible{outline:2px solid var(--signal);outline-offset:-2px}
+[id]{scroll-margin-top:132px}
+@media(max-width:620px){.ingredientNav{top:70px}.ingredientNav a{padding:11px 13px;font-size:11px}}
