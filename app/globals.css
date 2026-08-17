@@ -795,3 +795,106 @@ html[dir="rtl"] .heroBand .heroKicker{letter-spacing:normal}
 .footer strong,.footer p{
   text-shadow:0 1px 2px rgba(0,0,0,.45);
 }
+
+/* =====================================================================
+   V22: dissolve the Carbon-to-Bone edge, make the blue a spark,
+        and give the header real glass.
+   ===================================================================== */
+
+/* --- 1. No hard edge. The band now fades from solid Carbon through to
+       fully transparent, so it dissolves into the Bone page beneath
+       instead of stopping against it. --- */
+.heroBand{
+  background:linear-gradient(
+    180deg,
+    #0C0C0D 0%,
+    #0C0C0D 46%,
+    rgba(12,12,13,.97) 66%,
+    rgba(12,12,13,.82) 80%,
+    rgba(12,12,13,.45) 91%,
+    rgba(12,12,13,.14) 97%,
+    rgba(12,12,13,0) 100%
+  );
+  padding-bottom:clamp(96px,13vw,180px);
+  margin-bottom:0;
+}
+
+/* --- 2. The blue as a spark, not a wash. A small bright core with a wide
+       soft halo reads as a glint of light. A single large radial just
+       looked like a coloured panel. --- */
+.heroBand::after{
+  background:
+    radial-gradient(180px 180px at 74% 22%, rgba(120,155,255,.34) 0%, rgba(120,155,255,0) 68%),
+    radial-gradient(680px 520px at 76% 26%, rgba(45,91,255,.16) 0%, rgba(45,91,255,0) 66%),
+    radial-gradient(1100px 700px at 88% 6%, rgba(45,91,255,.07) 0%, rgba(45,91,255,0) 70%);
+  mix-blend-mode:screen;
+}
+
+/* the mark drifts behind the spark rather than sitting beside it */
+.heroMark{opacity:.045;inset-inline-end:-4%;width:min(520px,50vw)}
+
+/* --- 3. Carry the fade downward so the search zone rises out of the band
+       rather than starting after it --- */
+.searchZone{
+  position:relative;
+  margin-top:clamp(-88px,-11vw,-64px);
+  padding-top:0;
+  z-index:3;
+}
+.searchZone .bigSearch{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 2px 6px rgba(12,12,13,.06),0 22px 50px rgba(12,12,13,.14);
+}
+
+/* --- 4. Real glass on the header. Low opacity plus heavy blur and
+       saturation, with a light top edge so it catches the surface. --- */
+.header{
+  background:rgba(246,244,239,.42);
+  backdrop-filter:blur(28px) saturate(185%);
+  -webkit-backdrop-filter:blur(28px) saturate(185%);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 1px 1px rgba(12,12,13,.03),0 10px 34px rgba(12,12,13,.09);
+}
+.brandLogo{height:30px}
+.langToggle{
+  border-color:rgba(12,12,13,.16);
+  background:rgba(255,255,255,.35);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+@media(max-width:620px){.brandLogo{height:24px}}
+
+/* --- 5. Soften every other section boundary. Sections were butting into
+       each other on a flat ground; now each transition is a gradient. --- */
+.goalsBlock,.rulesBlock,.explainerBlock{border-top:0;position:relative}
+.goalsBlock::before,.rulesBlock::before,.explainerBlock::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(1120px,calc(100% - 32px));height:1px;
+  background:linear-gradient(90deg,
+    rgba(12,12,13,0) 0%,
+    rgba(12,12,13,.10) 18%,
+    rgba(12,12,13,.10) 82%,
+    rgba(12,12,13,0) 100%);
+}
+.goalsBlock{
+  background:linear-gradient(180deg,var(--bone) 0%,#FBFAF7 40%,var(--bone) 100%);
+}
+.rulesBlock{
+  background:linear-gradient(180deg,var(--bone) 0%,#F2EFE8 55%,var(--bone) 100%);
+}
+
+/* --- 6. Ease the whole page: no abrupt white against bone --- */
+body{
+  background:
+    radial-gradient(620px 380px at 84% 4%, rgba(45,91,255,.045) 0%, rgba(45,91,255,0) 62%),
+    linear-gradient(180deg,var(--bone) 0%,#F8F6F1 45%,var(--bone) 100%);
+  background-attachment:fixed;
+}
+@media(max-width:620px){
+  body{background-attachment:scroll}
+  .searchZone{margin-top:-52px}
+  .heroBand{padding-bottom:96px}
+}
+@media(prefers-reduced-motion:reduce){.heroMark{opacity:.035}}
