@@ -1046,3 +1046,91 @@ html[dir="rtl"] .ruleText{letter-spacing:normal;line-height:1.4}
   .rulesScroll li{grid-template-columns:1fr;gap:8px}
   .ruleText{max-width:none}
 }
+
+/* =====================================================================
+   V24: TRUE CARBON HERO · APPROVED MARK · BONE SHEET TRANSITION
+   Reads as black at a distance. The blue is emitted energy, not a
+   background. The next section is a paper sheet sliding over an
+   instrument surface, not a fade.
+   ===================================================================== */
+
+/* --- 1. True Carbon, one contained illumination. The previous six-stop
+       fade to transparent is gone. --- */
+.heroBand{
+  background:
+    radial-gradient(circle at 76% 35%,
+      rgba(45,91,255,.16) 0%,
+      rgba(45,91,255,.07) 18%,
+      rgba(45,91,255,0) 46%),
+    var(--carbon);
+  padding:clamp(76px,11vw,150px) 0 clamp(88px,11vw,146px);
+  margin-bottom:0;
+  overflow:visible;
+}
+.heroBand::after{content:none}
+
+/* --- 2. The Bone sheet. Paper sliding over the instrument. --- */
+.boneSheet{
+  position:relative;z-index:2;margin-top:-28px;
+  background:var(--bone);
+  border-radius:34px 34px 0 0;
+  padding-top:clamp(30px,4vw,52px);
+}
+.searchZone{margin-top:0;padding-top:0}
+.searchZone .bigSearch{
+  background:var(--white);
+  box-shadow:0 1px 2px rgba(12,12,13,.05),0 14px 38px rgba(12,12,13,.10);
+}
+.askedBlock{padding-top:clamp(44px,6vw,76px)}
+
+/* --- 3. The approved mark, used as artwork. Never redrawn, never
+       filtered, never distorted. Any glow lives on a layer behind it. --- */
+.heroGlyphWrap{position:relative;display:grid;place-items:center;min-height:clamp(230px,30vw,400px)}
+.heroMarkImg{
+  position:relative;z-index:2;
+  width:clamp(150px,19vw,248px);height:auto;
+  object-fit:contain;
+  filter:none;
+}
+.heroLight{
+  position:absolute;z-index:1;
+  width:clamp(300px,38vw,520px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(45,91,255,.20) 0%,
+    rgba(45,91,255,.08) 30%,
+    rgba(45,91,255,0) 62%);
+  transform:translate(4%,-8%);
+  pointer-events:none;
+}
+
+/* --- 4. Hierarchy: question, then mark, then action, then eyebrow,
+       then system language. Nothing glows. --- */
+.heroBand h1{color:var(--bone);text-shadow:none}
+.heroBand .heroKicker{
+  color:var(--signal);font-size:11.5px;font-weight:600;letter-spacing:.22em;
+  text-shadow:none;margin-bottom:22px;
+}
+.heroSignals{color:rgba(246,244,239,.45);font-size:11px;letter-spacing:.18em;text-shadow:none}
+.sigLabel{
+  color:rgba(246,244,239,.48);font-size:10.5px;letter-spacing:.16em;
+  text-shadow:none;animation:sigCross 5.2s ease-in-out infinite;
+}
+@keyframes sigCross{0%,100%{opacity:0}20%,74%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.sigLabel{animation:none;opacity:.48}}
+.sigLabel.p1{top:6%;inset-inline-start:0}
+.sigLabel.p2{bottom:12%;inset-inline-end:-2%}
+.sigLabel.p3{top:56%;inset-inline-start:-6%}
+
+/* --- 5. Header: the approved black mark, confident scale, one system --- */
+.brandLogo{height:32px;width:auto;object-fit:contain}
+@media(max-width:620px){.brandLogo{height:27px}}
+
+/* --- 6. 52/48 editorial split with real negative space --- */
+.heroBandInner{grid-template-columns:1.08fr .92fr;gap:clamp(28px,6vw,88px)}
+
+@media(max-width:820px){
+  .heroBandInner{grid-template-columns:1fr;gap:36px}
+  .boneSheet{margin-top:-22px;border-radius:28px 28px 0 0}
+  .heroMarkImg{width:clamp(130px,30vw,180px)}
+  .heroLight{width:min(360px,72vw)}
+}

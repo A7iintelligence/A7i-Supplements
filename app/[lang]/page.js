@@ -41,12 +41,13 @@ export default async function HomePage({ params }) {
         </div>
       </section>
 
-      <section className="shell searchZone">
-        <SearchExperience lang={lang} />
-      </section>
+      <div className="boneSheet">
+        <section className="shell searchZone">
+          <SearchExperience lang={lang} />
+        </section>
 
       {/* ── What are people asking: editorial rows, no cards ── */}
-      <section className="shell askedBlock">
+        <section className="shell askedBlock">
         <p className="eyebrow">{t.askedEyebrow}</p>
         <ul className="askedList">
           {questions.map(([q, slug]) => (
@@ -58,7 +59,8 @@ export default async function HomePage({ params }) {
             </li>
           ))}
         </ul>
-      </section>
+        </section>
+      </div>
 
       {/* ── A7i Rules: Carbon, massive numerals, no cards ── */}
       <section className="rulesBand">
