@@ -27,9 +27,15 @@ export default async function HomePage({ params }) {
 
   return (
     <main>
-      <section className="shell heroBlock">
-        <p className="heroKicker">{t.heroSupport}</p>
-        <h1>{t.heroTitle}</h1>
+      <section className="heroBand">
+        <div className="shell heroBandInner">
+          <p className="heroKicker">{t.heroSupport}</p>
+          <h1>{t.heroTitle}</h1>
+        </div>
+        <img src="/logo-mark-white.png" alt="" aria-hidden="true" className="heroMark" />
+      </section>
+
+      <section className="shell searchZone">
         <SearchExperience lang={lang} />
       </section>
 

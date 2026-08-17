@@ -660,3 +660,100 @@ a.searchResult:hover,.startHere .questionList a:hover{background:rgba(12,12,13,.
 .core{background:var(--carbon);color:var(--bone)}
 .float{background:rgba(255,255,255,.9);border-color:var(--line);color:var(--carbon)}
 .quiet{opacity:.5}
+
+/* =====================================================================
+   V20: presence on a light ground.
+   Drama comes from scale, weight and dark bands, not from text shadows.
+   ===================================================================== */
+
+/* --- 1. The Carbon band. Light → dark → light gives the page rhythm,
+       and finally spends the 25% Carbon as a block rather than as text. --- */
+.heroBand{
+  position:relative;overflow:hidden;background:var(--carbon);
+  padding:clamp(64px,10vw,132px) 0 clamp(56px,8vw,104px);
+  margin-bottom:clamp(32px,5vw,56px);
+}
+.heroBand::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(760px 420px at 78% 8%, rgba(45,91,255,.20) 0%, rgba(45,91,255,0) 62%);
+}
+.heroBandInner{position:relative;z-index:2}
+.heroBand .heroKicker{color:var(--signal);font-size:12px;letter-spacing:.2em;margin-bottom:20px}
+.heroBand h1{
+  font:400 clamp(46px,9vw,108px)/.96 var(--font-display),Georgia,serif;
+  letter-spacing:-.045em;color:var(--bone);margin:0;max-width:15ch;
+}
+.heroMark{
+  position:absolute;top:50%;inset-inline-end:-6%;transform:translateY(-50%);
+  width:min(460px,46vw);opacity:.05;z-index:1;pointer-events:none;
+}
+html[dir="rtl"] .heroBand h1{letter-spacing:normal;line-height:1.25}
+html[dir="rtl"] .heroBand .heroKicker{letter-spacing:normal}
+.searchZone{padding-bottom:clamp(40px,6vw,72px)}
+
+/* --- 2. Scale. Section titles were competing with body copy. --- */
+.sectionTitle{font-size:clamp(34px,5vw,60px);letter-spacing:-.04em;margin-bottom:8px}
+.goalsBlock,.rulesBlock,.explainerBlock,.simpleSection{padding:clamp(52px,7vw,84px) 0}
+.goalsBlock .eyebrow,.rulesBlock .eyebrow,.explainerBlock .eyebrow{
+  display:inline-block;padding-bottom:9px;margin-bottom:18px;
+  border-bottom:2px solid var(--signal);
+}
+.ingredientHero h1,.categoryPage h1,.goalHero h1{font-size:clamp(46px,8.5vw,104px);letter-spacing:-.05em}
+
+/* --- 3. Elevation. Two layered shadows read as paper on paper; one flat
+       shadow reads as a border. --- */
+.searchResults,.browsePanel,.foodVsShelf,.pairSection,.bestForSection,
+.sourcesBlock,.deeperSection,.claimCheck{
+  box-shadow:0 1px 2px rgba(12,12,13,.04),0 12px 32px rgba(12,12,13,.06);
+}
+.infoCard,.deepCards article,.rulesBlock .rules div,.goalCard,.indicators li{
+  box-shadow:0 1px 2px rgba(12,12,13,.035),0 6px 18px rgba(12,12,13,.045);
+}
+.goalCard{transition:transform .18s ease,box-shadow .18s ease}
+.goalCard:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(12,12,13,.05),0 18px 40px rgba(12,12,13,.10)}
+
+/* --- 4. Numbers as the hero. The food figures are the site's signature
+       data and were set at body size. --- */
+.foodList div{align-items:baseline;padding:13px 0}
+.foodList div span{
+  font:400 21px/1 var(--font-display),Georgia,serif;
+  color:var(--mineral);white-space:nowrap;
+}
+.foodList div strong{font-weight:400;font-size:15px;color:var(--carbon)}
+
+/* --- 5. Verdict badge earns its place as the site's signature mark --- */
+.verdict{padding:6px 13px;font-size:11.5px;letter-spacing:.02em}
+.ingredientHero .verdict{padding:8px 16px;font-size:13px}
+.heroVerdict{margin:0 0 16px}
+
+/* --- 6. Rules block: oversized numerals instead of small caps --- */
+.rulesBlock .rules div{position:relative;padding:26px 22px 22px;overflow:hidden}
+.rulesBlock .rules small{
+  position:absolute;top:-8px;inset-inline-end:10px;
+  font:400 66px/1 var(--font-display),Georgia,serif;
+  color:rgba(45,91,255,.10);letter-spacing:-.04em;
+}
+.rulesBlock .rules b{font-size:21px;line-height:1.3;position:relative}
+
+/* --- 7. Editorial detail: a rule under the section eyebrow, a wider
+       measure on leads, tighter card corners --- */
+.infoCard,.goalCard,.deepCards article,.rulesBlock .rules div{border-radius:14px}
+.searchResults,.browsePanel,.bestForSection,.pairSection,.sourcesBlock,
+.deeperSection,.foodVsShelf,.claimCheck{border-radius:18px}
+.goalLead,.srcLead{font-size:16px;max-width:66ch}
+.ingredientHero p:not(.eyebrow):not(.heroVerdict){font-size:18px;max-width:60ch;color:var(--muted)}
+
+/* --- 8. Mineral Green stat card gets real presence --- */
+.infoCard.dark{background:var(--mineral);position:relative;overflow:hidden}
+.infoCard.dark::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(300px 220px at 88% 6%, rgba(246,244,239,.10) 0%, rgba(246,244,239,0) 70%);
+}
+.infoCard.dark>*{position:relative;z-index:1}
+
+@media(max-width:620px){
+  .heroMark{inset-inline-end:-18%;width:64vw;opacity:.06}
+  .heroBand{padding:52px 0 44px}
+  .rulesBlock .rules small{font-size:52px}
+  .foodList div span{font-size:19px}
+}
