@@ -16,6 +16,25 @@ export const indicators = {
   probiotics:         { en:{food:"Fermented food ≠ studied strain", intake:"Strain + dose specific", timing:"Product-specific", evidence:"Strain-specific"}, ar:{food:"الغذاء المخمر ≠ السلالة المدروسة", intake:"حسب السلالة والجرعة", timing:"حسب المنتج", evidence:"حسب السلالة"} },
 };
 
+export const askedQuestions = {
+  en: [
+    ["Is collagen worth taking?", "collagen-peptides"],
+    ["Can I get enough magnesium from food?", "magnesium"],
+    ["What is the difference between D2 and D3?", "vitamin-d3"],
+    ["Does creatine timing matter?", "creatine"],
+    ["Why does probiotic strain matter?", "probiotics"],
+    ["What reduces iron absorption?", "iron"],
+  ],
+  ar: [
+    ["هل الكولاجين يستحق الشراء؟", "collagen-peptides"],
+    ["هل يكفي الغذاء لتغطية المغنيسيوم؟", "magnesium"],
+    ["ما الفرق بين د2 و د3؟", "vitamin-d3"],
+    ["هل يهمّ توقيت الكرياتين؟", "creatine"],
+    ["لماذا تهمّ سلالة البروبيوتيك؟", "probiotics"],
+    ["ما الذي يقلل امتصاص الحديد؟", "iron"],
+  ],
+};
+
 export const popularQuestions = {
   en: [
     ["Is collagen worth taking?", "collagen-peptides"],

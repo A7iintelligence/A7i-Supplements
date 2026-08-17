@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { getUi } from "@/lib/i18n";
-import { goals } from "@/data/goals";
+import { askedQuestions } from "@/data/site";
 import SearchExperience from "@/components/SearchExperience";
+import HeroGlyph from "@/components/HeroGlyph";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const ar = lang === "ar";
   return {
     title: ar
-      ? "A7i — ماذا تريد أن تفهم؟"
-      : "A7i Supplements — What do you want to understand?",
+      ? "A7i — اسأل وحنا نشرح لك"
+      : "A7i Supplements — Supplements, minus the noise",
     description: ar
-      ? "منصة ثنائية اللغة قائمة على الدليل: الغذاء أولاً، والمكمل حين يضيف قيمة حقيقية."
-      : "Evidence-led supplement guides: food first, supplements only when they genuinely add value.",
+      ? "منصة ثنائية اللغة قائمة على الدليل: الغذاء أولاً، والمكمّل حين يضيف قيمة حقيقية."
+      : "Understand what you take, before deciding whether you need it. Evidence-led supplement guides.",
     alternates: {
       canonical: `/${lang}`,
       languages: { en: "/en", ar: "/ar", "x-default": "/en" },
@@ -24,55 +25,53 @@ export default async function HomePage({ params }) {
   const { lang } = await params;
   const t = getUi(lang);
   const ar = lang === "ar";
+  const questions = askedQuestions[ar ? "ar" : "en"];
 
   return (
     <main>
+      {/* ── Carbon hero: the glyph, the statement, the search ── */}
       <section className="heroBand">
         <div className="shell heroBandInner">
-          <p className="heroKicker">{t.heroSupport}</p>
-          <h1>{t.heroTitle}</h1>
+          <div className="heroCopy">
+            <p className="heroKicker">{t.heroSupport}</p>
+            <h1>{t.heroTitle}</h1>
+            <p className="heroSignals">{t.signalsNote}</p>
+          </div>
+          <HeroGlyph lang={lang} />
         </div>
-        <img src="/logo-mark-white.png" alt="" aria-hidden="true" className="heroMark" />
       </section>
 
       <section className="shell searchZone">
         <SearchExperience lang={lang} />
       </section>
 
-      <section className="shell goalsBlock">
-        <p className="eyebrow">{t.goalsEyebrow}</p>
-        <h2 className="sectionTitle">{t.goalsTitle}</h2>
-        <div className="goalCards">
-          {goals.map((g) => {
-            const d = g[lang] || g.en;
-            return (
-              <Link key={g.slug} href={`/${lang}/goal/${g.slug}`} className={`goalCard gc-${g.slug}`}>
-                <strong>{d.name}</strong>
-                <span>{d.teaser}</span>
+      {/* ── What are people asking: editorial rows, no cards ── */}
+      <section className="shell askedBlock">
+        <p className="eyebrow">{t.askedEyebrow}</p>
+        <ul className="askedList">
+          {questions.map(([q, slug]) => (
+            <li key={slug + q}>
+              <Link href={`/${lang}/ingredient/${slug}`}>
+                <span>{q}</span>
                 <em aria-hidden="true">{ar ? "←" : "→"}</em>
               </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="shell explainerBlock">
-        <Link href={`/${lang}/how-minerals-work`} className="explainerLink">
-          <span className="eyebrow">{ar ? "شرح" : "EXPLAINER"}</span>
-          <strong>{ar ? "كيف تشتغل المعادن فعلياً" : "How minerals actually work"}</strong>
-          <span>{ar ? "الإنزيمات التي تفسّر لماذا ترتبط المعادن ببعضها." : "The enzymes that explain why minerals depend on each other."}</span>
-        </Link>
-      </section>
-
-      <section className="shell rulesBlock">
-        <p className="eyebrow">{t.rulesEyebrow}</p>
-        <div className="rules">
-          {t.rules.map(([num, rule]) => (
-            <div key={num}>
-              <small>{num}</small>
-              <b>{rule}</b>
-            </div>
+            </li>
           ))}
+        </ul>
+      </section>
+
+      {/* ── A7i Rules: Carbon, massive numerals, no cards ── */}
+      <section className="rulesBand">
+        <div className="shell">
+          <p className="eyebrow">{t.rulesEyebrow}</p>
+          <ol className="rulesScroll">
+            {t.rules.map(([num, rule]) => (
+              <li key={num}>
+                <span className="ruleNum">{num}</span>
+                <p className="ruleText">{rule}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </main>

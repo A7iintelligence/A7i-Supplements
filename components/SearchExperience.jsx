@@ -97,13 +97,14 @@ export default function SearchExperience({ lang, lockedCategory = null }) {
           <button type="button" className={category === null ? "active" : ""} onClick={() => setCategory(null)}>
             {t.allCategories}
           </button>
-          {categories.map((c) => (
+          {categories.map((c, n) => (
             <button
               key={c.slug}
               type="button"
               className={category === c.slug ? "active" : ""}
               onClick={() => setCategory(category === c.slug ? null : c.slug)}
             >
+              <i aria-hidden="true">{String(n + 1).padStart(2, "0")}</i>
               {ar ? c.ar : c.label}
             </button>
           ))}

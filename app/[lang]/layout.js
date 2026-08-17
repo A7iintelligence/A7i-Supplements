@@ -32,9 +32,13 @@ export default async function LangLayout({ children, params }) {
         {children}
 
         <footer className="footer">
-          <strong>{t.footerTitle}</strong>
-          <p>{t.footerNote}</p>
-          <p>© 2026 A7i Supplements</p>
+          <div className="footerTop">
+            <img src="/logo-wordmark-white.png" alt="A7i Supplements" className="footerLogo" />
+            <strong>{t.footerTitle}</strong>
+          </div>
+          <p className="footerLinks">{t.footerLinks}</p>
+          <p className="footerNote">{t.footerNote}</p>
+          <p className="footerCopy">© 2026 A7i Supplements</p>
         </footer>
         <Analytics />
       </body>
