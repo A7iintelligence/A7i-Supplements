@@ -5,6 +5,8 @@ import { indicators } from "@/data/site";
 import { verdicts } from "@/data/browse";
 import { getPairings, getStack, strengthMeta } from "@/data/pairings";
 import { getForms, formStrength } from "@/data/forms";
+import { getBestFor } from "@/data/best-for";
+import { gradeMeta } from "@/data/goals";
 import { pairNameAr, stackNameAr, formNameAr } from "@/data/pair-names-ar";
 import Verdict from "@/components/Verdict";
 import { supportedLangs, getUi } from "@/lib/i18n";
@@ -62,6 +64,7 @@ export default async function IngredientPage({ params }) {
   const pair = getPairings(slug);
   const stack = getStack(slug);
   const formList = getForms(slug);
+  const bf = getBestFor(slug);
   const base = "https://supplements.a7iintelligence.com";
 
   const articleLd = {
@@ -146,35 +149,43 @@ export default async function IngredientPage({ params }) {
         </article>
       </section>
 
-      <section className="foodVsShelf">
-        <div className="fvsTitle">
-          <p className="eyebrow">{ar ? "الغذاء أم المكمل؟" : "FOOD VS SUPPLEMENT"}</p>
-          <h2>
-            {ar
-              ? "هل يمكنني الوصول إلى الكمية عملياً من الطعام؟"
-              : "Can food realistically get me there?"}
-          </h2>
-        </div>
+      {bf && (
+        <section className="bestForSection">
+          <p className="eyebrow">{ar ? "لماذا يؤخذ" : "WHAT IT IS ACTUALLY GOOD FOR"}</p>
+          <div className="bfList">
+            {bf.best.map((b) => {
+              const g = gradeMeta[b.grade];
+              return (
+                <article key={b.outcome}>
+                  <div className="bfHead">
+                    <span className="bfOutcome">{ar ? b.outcomeAr : b.outcome}</span>
+                    <span className={`verdict v-${g.tone} vSmall`}>{ar ? g.ar : g.en}</span>
+                  </div>
+                  <p>{ar ? b.whyAr : b.why}</p>
+                </article>
+              );
+            })}
+          </div>
 
-        <div className="fvsGrid">
-          <div>
-            <small>{ar ? "هل يمكن للطعام؟" : "CAN FOOD DO IT?"}</small>
-            <strong>{d.foodVsShelf.canFood}</strong>
-          </div>
-          <div>
-            <small>{ar ? "في الحياة اليومية" : "REAL-WORLD FEASIBILITY"}</small>
-            <p>{d.foodVsShelf.reality}</p>
-          </div>
-          <div>
-            <small>{ar ? "لماذا أشتري مكمل؟" : "WHAT DOES A SUPPLEMENT ADD?"}</small>
-            <p>{d.foodVsShelf.shelf}</p>
-          </div>
-          <div className="fvsTake">
-            <small>{ar ? "خلاصة A7i" : "A7i TAKE"}</small>
+          {bf.not?.length > 0 && (
+            <div className="bfNot">
+              <p className="eyebrow">{ar ? "يُشترى لهذا، والدليل لا يدعمه" : "BOUGHT FOR THIS, BUT THE EVIDENCE DOES NOT SUPPORT IT"}</p>
+              {bf.not.map((x) => (
+                <article key={x.outcome}>
+                  <span className="bfOutcome">{ar ? x.outcomeAr : x.outcome}</span>
+                  <p>{ar ? x.whyAr : x.why}</p>
+                </article>
+              ))}
+            </div>
+          )}
+
+          <div className="bfFood">
+            <small>{ar ? "الغذاء أم المكمّل؟" : "FOOD OR SUPPLEMENT?"}</small>
             <strong>{d.foodVsShelf.verdict}</strong>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
 
       {(stack || (pair && (pair.pairWith.length > 0 || pair.keepApart.length > 0))) && (
         <section className="pairSection">

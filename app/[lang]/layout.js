@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { supportedLangs, getUi } from "@/lib/i18n";
 import LanguageToggle from "@/components/LanguageToggle";
+import { Analytics } from "@vercel/analytics/next";
 
 export function generateStaticParams() {
   return supportedLangs.map((lang) => ({ lang }));
@@ -36,6 +37,7 @@ export default async function LangLayout({ children, params }) {
           <p>{t.footerNote}</p>
           <p>© 2026 A7i Supplements</p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );

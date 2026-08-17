@@ -495,3 +495,23 @@ html[dir="rtl"] .ingredientHero h1,html[dir="rtl"] .categoryPage h1,html[dir="rt
 }
 .heroKicker{color:#E0C88F;text-shadow:0 1px 4px rgba(0,0,0,.85)}
 .verdict{text-shadow:none}
+
+/* ===== V18: what it is actually good for ===== */
+.bestForSection{margin-top:14px;padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--white);box-shadow:var(--shadow)}
+.bfList{border-top:1px solid var(--line);margin-top:6px}
+.bfList article{padding:17px 0;border-bottom:1px solid var(--line)}
+.bfHead{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:7px}
+.bfOutcome{font:400 clamp(19px,2.2vw,24px)/1.3 var(--font-display),Georgia,serif;letter-spacing:-.015em;color:var(--ink)}
+.bfList p,.bfNot p{margin:0;font-size:15px;line-height:1.65;color:var(--muted);max-width:74ch}
+.bfNot{margin-top:22px;padding:18px 20px;border-radius:14px;background:rgba(239,159,39,.08);border-left:2px solid var(--warn-ink)}
+.bfNot .eyebrow{color:var(--warn-ink)!important;margin-bottom:12px}
+.bfNot article{padding:8px 0}
+.bfNot .bfOutcome{display:block;font-size:18px;margin-bottom:5px}
+.bfFood{margin-top:20px;padding:17px 19px;border-radius:12px;background:linear-gradient(135deg,rgba(143,214,178,.12),rgba(143,214,178,.04));border-left:2px solid var(--green)}
+.bfFood small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px;font-weight:800}
+.bfFood strong{display:block;font:400 20px/1.45 var(--font-display),Georgia,serif;color:var(--ink);max-width:70ch}
+html[dir="rtl"] .bfNot,html[dir="rtl"] .bfFood{border-left:0;border-right:2px solid}
+html[dir="rtl"] .bfNot{border-right-color:var(--warn-ink)}
+html[dir="rtl"] .bfFood{border-right-color:var(--green)}
+html[dir="rtl"] .bfFood small{letter-spacing:normal}
+@media(max-width:620px){.bestForSection{padding:19px}.bfOutcome{font-size:19px}.bfFood strong{font-size:18px}}
