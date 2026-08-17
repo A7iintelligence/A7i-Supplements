@@ -515,3 +515,148 @@ html[dir="rtl"] .bfNot{border-right-color:var(--warn-ink)}
 html[dir="rtl"] .bfFood{border-right-color:var(--green)}
 html[dir="rtl"] .bfFood small{letter-spacing:normal}
 @media(max-width:620px){.bestForSection{padding:19px}.bfOutcome{font-size:19px}.bfFood strong{font-size:18px}}
+
+/* =====================================================================
+   V19: A7i BRAND PALETTE
+   Carbon #0C0C0D · Bone #F6F4EF · Mineral Green #1E3D34
+   Signal Blue #2D5BFF · Stone #8E918E
+   Target ratio: 60 Bone / 25 Carbon / 8 Mineral Green / 5 Signal Blue / 2 Stone
+   Clay is a functional-only state colour for caution. It is not a brand
+   colour; safety states must be distinguishable from evidence states.
+   ===================================================================== */
+
+:root{
+  --carbon:#0C0C0D;
+  --bone:#F6F4EF;
+  --mineral:#1E3D34;
+  --signal:#2D5BFF;
+  --stone:#8E918E;
+  --clay:#8A5A1E;
+
+  --paper:var(--bone);
+  --white:#FFFFFF;
+  --ink:var(--carbon);
+  --muted:#5E615E;
+  --green:var(--mineral);
+  --sage:rgba(30,61,52,.07);
+  --line:rgba(12,12,13,.13);
+  --brass:var(--signal);
+  --brass-2:var(--signal);
+  --shadow:0 20px 60px rgba(12,12,13,.07);
+
+  --good-bg:rgba(30,61,52,.10);   --good-ink:#1E3D34;
+  --info-bg:rgba(45,91,255,.10);  --info-ink:#2246C7;
+  --warn-bg:rgba(138,90,30,.11);  --warn-ink:#7A4E14;
+  --muted-bg:rgba(142,145,142,.15); --muted-ink:#5E615E;
+}
+
+body{
+  background:
+    radial-gradient(900px 520px at 82% -10%, rgba(45,91,255,.05) 0%, rgba(45,91,255,0) 60%),
+    var(--bone);
+  background-attachment:scroll;
+  color:var(--carbon);
+}
+
+/* --- chrome: the Carbon quarter --- */
+.safety{background:var(--carbon);color:rgba(246,244,239,.82);border-bottom:0}
+.header{background:rgba(246,244,239,.88);border-color:var(--line);backdrop-filter:blur(18px) saturate(130%)}
+.brandLogo{height:26px;width:auto;display:block}
+@media(max-width:620px){.brandLogo{height:21px}}
+.miniNav a{color:var(--carbon);opacity:.72}
+.miniNav a:hover{opacity:1}
+.langToggle{border-color:var(--line)}
+.langToggle a{color:var(--carbon)}
+.langToggle .active{background:var(--carbon);color:var(--bone)}
+.footer{background:var(--carbon);color:var(--bone);border-top:0}
+.footer strong{color:var(--bone)}
+.footer p{color:rgba(246,244,239,.6)}
+
+/* --- surfaces --- */
+.searchResults,.browsePanel,.answerCard,.infoCard,.deepCards article,
+.deeperSection,.rulesBlock .rules div,.sources,.indicators li,.subtypeList li,
+.foodVsShelf,.pairSection,.sourcesBlock,.bestForSection,.goalCard{
+  background:var(--white);border-color:var(--line);
+}
+.infoCard.dark{background:var(--mineral);border-color:var(--mineral)}
+.infoCard.dark h2,.infoCard.dark small{color:var(--bone)}
+.infoCard.dark p{color:rgba(246,244,239,.78)}
+.bigSearch{background:var(--white);border-color:var(--line);box-shadow:0 6px 24px rgba(12,12,13,.06)}
+.bigSearch:focus-within{border-color:var(--signal);box-shadow:0 0 0 3px rgba(45,91,255,.14)}
+.bigSearch input{color:var(--carbon)}
+.bigSearch input::placeholder{color:var(--stone)}
+.magnifier,.clearBtn{color:var(--stone)}
+
+/* --- type: Carbon for content, Stone for secondary --- */
+.eyebrow,.browseGroup .eyebrow{color:var(--stone);font-weight:800;text-shadow:none}
+.heroKicker{color:var(--signal);text-shadow:none}
+.infoCard small,.fvsGrid small,.deeperBody small,.indicators small,
+.ccRows small,.deepCards small,.answerChips small,.absNote small,.enzDeficit span{
+  color:var(--stone);font-weight:700;text-shadow:none;
+}
+.srCat,.bSym,.srcList span,.formNote,.gradedNote,.pairNote,.srcNote,.quietText{
+  color:var(--stone);text-shadow:none;
+}
+.infoCard p,.fvsGrid p,.deeperBody p,.studiedList p,.freeList p,.categorySeoCopy p,
+.muted,.medicalCallout p,.microList li,.answerLine,.pairCol p,.bfList p,.bfNot p,
+.enzymeList p,.srcLead,.goalLead,.ccRows p{color:var(--muted)}
+h1,h2,h3,.stackName,.answerName,.bfOutcome,.stName,.pairName,.bName,.srName,
+.formName,.enzName,.freeList strong,.rules b,.goalCard strong{color:var(--carbon)}
+.pairColLabel{text-shadow:none}
+.pairColLabel.good{color:var(--mineral)}
+.pairColLabel.warn{color:var(--clay)}
+.enzDep{color:var(--signal);text-shadow:none;font-weight:800}
+.stackTag{color:var(--stone);border-color:var(--line);text-shadow:none}
+
+/* --- Signal Blue: links, sources, evidence affordances --- */
+a.pairSrc,.srcList a,.sourceLink,.answerLink,.enzLinks a,.goalFooterLink a{color:var(--signal)}
+.pairSrc,.srcList a{border-bottom-color:rgba(45,91,255,.35)}
+.pairSrc:hover,.srcList a:hover{border-bottom-color:var(--signal)}
+a.pairName{border-bottom-color:rgba(45,91,255,.4)}
+.answerLink{border-bottom-color:var(--signal)}
+.categoryRail button{color:var(--muted);border-color:var(--line)}
+.categoryRail button:hover{border-color:var(--carbon);color:var(--carbon)}
+.categoryRail button.active{background:var(--carbon);color:var(--bone);border-color:var(--carbon)}
+.deeper summary::after{color:var(--stone)}
+.deeper summary:focus-visible,.formRow summary:focus-visible{outline-color:var(--signal)}
+a.searchResult:hover,.startHere .questionList a:hover{background:rgba(12,12,13,.03)}
+.answerChips span{background:rgba(12,12,13,.04);color:var(--carbon)}
+
+/* --- accent blocks --- */
+.fvsGrid .fvsTake,.bfFood,.honestBox,.medicalCallout{
+  background:rgba(30,61,52,.06);border-left-color:var(--mineral);
+}
+.bfFood small,.honestBox strong,.ccVerdict small{color:var(--mineral)}
+.honestBox p{color:var(--muted)}
+.redFlag,.bfNot,.absNote{background:rgba(138,90,30,.08)}
+.redFlag p{color:var(--clay)}
+.rfMark{background:var(--clay);color:var(--bone)}
+.bfNot{border-left-color:var(--clay)}
+.bfNot .eyebrow{color:var(--clay)!important}
+.claimCheck{background:rgba(138,90,30,.05);border-color:rgba(138,90,30,.22)}
+.ccVerdict{background:rgba(30,61,52,.07);border-left-color:var(--mineral)}
+.ccPremise small{color:var(--clay)!important}
+.researchWarning{color:var(--clay)!important}
+.indexCloud .dangerTag{border-color:rgba(138,90,30,.4);color:var(--clay)}
+.miniDivider{background:var(--line)}
+.interactionCard.timing{background:var(--mineral);color:var(--bone)}
+.interactionCard.timing .microList li{color:rgba(246,244,239,.75)}
+.interactionCard.positive{background:rgba(30,61,52,.07)}
+
+/* --- goal cards: one accent each, low saturation --- */
+.gc-sleep{background:rgba(45,91,255,.07)}
+.gc-energy{background:rgba(138,90,30,.08)}
+.gc-longevity{background:rgba(30,61,52,.07)}
+.gc-immunity{background:rgba(142,145,142,.12)}
+.goalCard span,.goalCard em{color:var(--muted);opacity:1}
+.goalCard:hover{border-color:var(--carbon)}
+.explainerLink{background:rgba(45,91,255,.06);border-color:rgba(45,91,255,.2)}
+.explainerLink:hover{border-color:var(--signal)}
+.explainerLink .eyebrow{color:var(--signal)}
+.explainerLink span:last-child{color:var(--muted)}
+
+/* --- hero art on light ground --- */
+.heroArt{border-color:var(--line);background:radial-gradient(circle at 50% 45%,#fff 0 14%,rgba(30,61,52,.10) 15% 31%,transparent 32%),linear-gradient(150deg,#EFECE4,#FBFAF6,#E9EEEA)}
+.core{background:var(--carbon);color:var(--bone)}
+.float{background:rgba(255,255,255,.9);border-color:var(--line);color:var(--carbon)}
+.quiet{opacity:.5}

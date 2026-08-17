@@ -11,6 +11,8 @@ export const metadata = {
 
   description:
     "Understand supplements, food sources, evidence, forms, absorption, interactions and timing without the noise.",
+
+  icons: { icon: "/icon.png", apple: "/icon.png" },
 };
 
 export default function RootLayout({ children }) {

@@ -19,9 +19,8 @@ export default async function LangLayout({ children, params }) {
         <div className="safety">{t.safetyStrip}</div>
 
         <header className="header">
-          <Link className="brand" href={`/${lang}`}>
-            <strong>{t.brand}</strong>
-            <span>{t.brandTag}</span>
+          <Link className="brand" href={`/${lang}`} aria-label="A7i Supplements">
+            <img src="/logo-wordmark.png" alt="A7i Supplements" className="brandLogo" />
           </Link>
           <nav className="miniNav" aria-label="Primary">
             <Link href={`/${lang}#search`}>{t.navSearch}</Link>
