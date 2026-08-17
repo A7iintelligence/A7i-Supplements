@@ -54,22 +54,25 @@ export const popularQuestions = {
 
 export const searchPlaceholders = {
   en: [
-    "Is collagen worth taking?",
+    "What do you want to know?",
     "Can I get enough magnesium from food?",
-    "Vitamin D3",
-    "What helps iron absorption?",
-    "Creatine for women",
-    "Probiotic vs postbiotic",
+    "Is collagen worth taking?",
+    "What should not be taken with iron?",
+    "Does creatine timing matter?",
+    "What is the difference between D2 and D3?",
+    "Can aspirin interact with supplements?",
   ],
   ar: [
-    "هل الكولاجين يستحق الشراء؟",
+    "وش تبي تعرف؟",
     "هل يكفي الغذاء للمغنيسيوم؟",
-    "فيتامين د3",
-    "ما الذي يحسّن امتصاص الحديد؟",
-    "الكرياتين للنساء",
-    "بروبيوتيك أم بوستبايوتك؟",
+    "هل الكولاجين يستحق الشراء؟",
+    "وش اللي ما ينفع يؤخذ مع الحديد؟",
+    "هل يهمّ توقيت الكرياتين؟",
+    "ما الفرق بين د2 و د3؟",
+    "هل يتفاعل الأسبرين مع المكمّلات؟",
   ],
 };
+
 
 export const categorySubtypes = {
   enzymes: {
