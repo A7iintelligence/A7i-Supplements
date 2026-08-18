@@ -36,7 +36,13 @@ export default async function LangLayout({ children, params }) {
             <img src="/logo-wordmark-white.png" alt="A7i Supplements" className="footerLogo" />
             <strong>{t.footerTitle}</strong>
           </div>
-          <p className="footerLinks">{t.footerLinks}</p>
+          <ul className="footerNav">
+            {t.footerNav.map(([label, href]) => (
+              <li key={href}>
+                <Link href={`/${lang}${href}`}>{label}</Link>
+              </li>
+            ))}
+          </ul>
           <p className="footerNote">{t.footerNote}</p>
           <p className="footerCopy">© 2026 A7i Supplements</p>
         </footer>

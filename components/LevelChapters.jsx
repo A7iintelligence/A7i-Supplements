@@ -5,7 +5,6 @@ import Link from "next/link";
 import { LEVELS } from "@/data/architecture";
 import { slugsForLevel } from "@/data/levels";
 import { getReviewed } from "@/data/catalog";
-import { verdicts, verdictMeta } from "@/data/browse";
 
 export default function LevelChapters({ lang, note }) {
   const ar = lang === "ar";
@@ -76,18 +75,12 @@ export default function LevelChapters({ lang, note }) {
                       </p>
                       <ul className="chGuides">
                         {published.map((item) => {
-                          const v = verdicts[item.slug];
-                          const m = v ? verdictMeta[v] : null;
                           const nm = (item[lang] || item.en).name;
                           return (
                             <li key={item.slug}>
                               <Link href={`/${lang}/ingredient/${item.slug}`}>
                                 <span>{nm}</span>
-                                {m && (
-                                  <span className={`verdict v-${m.tone} vSmall`}>
-                                    {ar ? m.ar : m.en}
-                                  </span>
-                                )}
+                                <em aria-hidden="true">{ar ? "←" : "→"}</em>
                               </Link>
                             </li>
                           );

@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap");
 
-:root{--paper:#f5f1e9;--white:#fffdf8;--ink:#101510;--muted:#657066;--green:#315448;--sage:#dbe5dc;--line:rgba(16,21,16,.14);--shadow:0 28px 90px rgba(16,21,16,.09);--font-display:"Instrument Sans";--font-sans:"Instrument Sans";--font-data:"Space Grotesk"}
+:root{--paper:#f5f1e9;--white:#fffdf8;--ink:#101510;--muted:#657066;--green:#315448;--sage:#dbe5dc;--line:rgba(16,21,16,.14);--shadow:0 28px 90px rgba(16,21,16,.09);--font-display:"Bricolage Grotesque";--font-sans:"Instrument Sans";--font-data:"Space Grotesk"}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Instrument Sans",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}html[dir=rtl] body{font-family:'Noto Sans Arabic',Tahoma,Arial,sans-serif}a{color:inherit}button,input{font:inherit}.shell{width:min(1120px,calc(100% - 32px));margin:auto}.eyebrow{margin:0 0 10px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.safety{background:var(--ink);color:white;text-align:center;padding:8px 14px;font-size:10px}.header{position:sticky;top:9px;z-index:30;width:min(1180px,calc(100% - 18px));margin:9px auto 0;display:flex;justify-content:space-between;align-items:center;min-height:58px;padding:8px 10px 8px 17px;border:1px solid var(--line);border-radius:999px;background:rgba(245,241,233,.9);backdrop-filter:blur(18px)}.brand{text-decoration:none;display:flex;align-items:baseline;gap:9px}.brand strong{font:700 25px var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.06em}.brand span{font-size:9px;font-weight:800;letter-spacing:.18em}.langToggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}.langToggle a{text-decoration:none;padding:8px 11px;font-size:9px;font-weight:800}.langToggle .active{background:var(--ink);color:white}
 .hero{min-height:690px;padding:88px 0 75px;display:grid;grid-template-columns:1fr .85fr;gap:60px;align-items:center}.hero h1{font:400 clamp(64px,8vw,112px)/.94 var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.055em;margin:0 0 24px}.hero p:not(.eyebrow){max-width:580px;color:var(--muted);font-size:17px}.heroCTA{display:inline-flex;margin-top:20px;padding:12px 17px;border-radius:999px;background:var(--ink);color:white;text-decoration:none;font-size:11px;font-weight:800}.heroArt{min-height:470px;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:44% 44% 22px 22px/34% 34% 22px 22px;background:radial-gradient(circle at 50% 45%,#fff 0 14%,#dce5dd 15% 31%,transparent 32%),linear-gradient(150deg,#e8e1d5,#fbf8f1,#d7e1d9)}.core{width:140px;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ink);color:white;z-index:3}.core strong{font:700 34px var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.06em}.core small{font-size:8px;letter-spacing:.2em}.float{position:absolute;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.88);font-size:9px;font-weight:800;animation:float 6s ease-in-out infinite}.f1{top:18%;left:7%}.f2{top:31%;right:5%;animation-delay:.7s}.f3{bottom:20%;left:8%;animation-delay:1.3s}.f4{bottom:16%;right:6%;animation-delay:2s}@keyframes float{50%{transform:translateY(-10px)}}
 .searchExperience{width:min(1120px,calc(100% - 32px));margin:auto;padding:85px 0;border-top:1px solid var(--line)}.guideIntro{display:grid;grid-template-columns:.65fr 1.35fr;gap:45px;align-items:end}.guideIntro h2{margin:0;font:400 clamp(38px,5vw,64px)/1 var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.045em}.categoryRail{display:flex;flex-wrap:wrap;gap:7px;margin-top:30px}.categoryRail button{border:1px solid var(--line);border-radius:999px;background:transparent;padding:9px 12px;font-size:9px;cursor:pointer}.categoryRail button.active{background:var(--ink);color:white;border-color:var(--ink)}.bigSearch{margin-top:18px;display:flex;align-items:center;border-bottom:1.5px solid var(--ink);padding:9px 0}.bigSearch input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:19px}.bigSearch span{font-size:23px}.searchResults{margin-top:12px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:var(--shadow)}.searchResult{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 18px;border-top:1px solid var(--line)}.searchResult:first-child{border-top:0}.searchResult small,.searchResult strong,.searchResult p{display:block}.searchResult small{color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.1em}.searchResult strong{font:400 21px var(--font-display),ui-sans-serif,system-ui,sans-serif}.searchResult p{margin:3px 0 0;color:var(--muted);font-size:9px}.searchResult a{text-decoration:none;font-size:10px;font-weight:800}.quiet{opacity:.35}.researchWarning{color:#8a3f32!important;font-weight:700}.emptySearch{padding:22px}.emptySearch p{margin-bottom:0;color:var(--muted);font-size:11px}
@@ -1410,7 +1410,7 @@ html[dir="rtl"] .azCount{letter-spacing:normal}
    ===================================================================== */
 
 :root{
-  --font-display:"Instrument Sans";
+  --font-display:"Bricolage Grotesque";
   --font-sans:"Instrument Sans";
   --font-data:"Space Grotesk";
 }
@@ -1433,17 +1433,14 @@ html[dir="rtl"] .heroBand h1,html[dir="rtl"] .chName,
 html[dir="rtl"] .qText,html[dir="rtl"] .ingredientHero h1,
 html[dir="rtl"] .categoryPage h1,html[dir="rtl"] .goalHero h1{letter-spacing:normal}
 
-/* Data + metadata: Space Grotesk, tabular figures, calm tracking. */
-.eyebrow,.heroKicker,.qTag,.chInside,.chCta,.azCount,.ingredientNav a,
-.verdict,.evidenceChip,.crumbs,.safety,.infoCard small,.fvsGrid small,
-.deepCards small,.indicators small,.reviewedStrip small,.answerChips small,
-.foodList div,.chItems li.restricted em{
+/* Data only: figures, counts, evidence chips. Everything editorial —
+   eyebrows, kickers, labels, nav — stays in the sans so nothing reads
+   like code sitting next to the headings. */
+.verdict,.evidenceChip,.azCount,.foodList div{
   font-family:var(--font-data),ui-monospace,"SF Mono",monospace;
   font-variant-numeric:tabular-nums;
 }
-html[dir="rtl"] .eyebrow,html[dir="rtl"] .heroKicker,html[dir="rtl"] .qTag,
-html[dir="rtl"] .chInside,html[dir="rtl"] .chCta,html[dir="rtl"] .azCount,
-html[dir="rtl"] .ingredientNav a,html[dir="rtl"] .crumbs,html[dir="rtl"] .safety{
+html[dir="rtl"] .verdict,html[dir="rtl"] .azCount,html[dir="rtl"] .foodList div{
   font-family:'Noto Sans Arabic',Tahoma,Arial,sans-serif;
 }
 
@@ -1495,3 +1492,70 @@ html[dir="rtl"] .askedList .qText{letter-spacing:normal}
 a.searchResult:hover .srArrow{color:var(--signal);transform:translateX(3px)}
 html[dir="rtl"] a.searchResult:hover .srArrow{transform:translateX(-3px)}
 .searchResult .srCat{color:var(--muted)}
+
+/* =====================================================================
+   V34: the search band sizes to its content. No screen of empty bone
+   above or below the box.
+   ===================================================================== */
+.heroBand{padding-bottom:clamp(40px,5vw,80px)}
+.searchZone{margin-top:clamp(-40px,-4.5vw,-28px);padding-bottom:clamp(14px,1.8vw,24px)}
+.chapters{padding-top:clamp(16px,2.2vw,28px)}
+@media(max-width:620px){
+  .heroBand{padding-bottom:48px}
+  .searchZone{margin-top:-28px}
+}
+
+/* =====================================================================
+   V35: label system in the sans, and a clearer good-for section.
+   Eyebrows were too small and the good-for block ran its sizes and
+   spacing together. This fixes hierarchy and air.
+   ===================================================================== */
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.13em;margin-bottom:14px}
+html[dir="rtl"] .eyebrow{letter-spacing:normal}
+
+.bestForSection .eyebrow{margin-bottom:18px}
+.bfList article{padding:20px 0}
+.bfHead{gap:14px;margin-bottom:9px}
+.bfList p,.bfNot p{font-size:15.5px;line-height:1.7}
+.bfNot{margin-top:26px;padding:22px 24px}
+.bfNotLabel{margin:0 0 8px;font-weight:600;font-size:13px;letter-spacing:.005em;color:var(--carbon)}
+html[dir="rtl"] .bfNotLabel{letter-spacing:normal}
+.bfNot article{padding:12px 0 4px}
+.bfNot .bfOutcome{display:block;font-size:18px;margin-bottom:6px;color:var(--carbon)}
+.bfFood{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.bfFood small{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mineral);margin-bottom:10px}
+html[dir="rtl"] .bfFood small{letter-spacing:normal}
+.bfFood strong{display:block;font:500 clamp(19px,2.1vw,24px)/1.4 var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.01em;color:var(--carbon);max-width:60ch}
+html[dir="rtl"] .bfFood strong{letter-spacing:normal;line-height:1.6}
+
+/* LevelChapters guide rows: quiet arrow instead of a verdict */
+.chGuides a em{font-style:normal;color:var(--stone);font-size:16px;transition:transform .2s ease,color .2s ease}
+.chGuides a:hover em{color:var(--signal);transform:translateX(3px)}
+html[dir="rtl"] .chGuides a:hover em{transform:translateX(-3px)}
+
+/* =====================================================================
+   V36: standing content pages (about, standards, privacy) reachable
+   from the footer.
+   ===================================================================== */
+.docPage{padding:48px 0 96px}
+.docPage h1{font:600 clamp(38px,6vw,64px)/1.02 var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 18px}
+html[dir="rtl"] .docPage h1{letter-spacing:normal;line-height:1.25}
+.docLead{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--muted);max-width:64ch;margin:0 0 8px}
+.docSection{padding:clamp(30px,4vw,48px) 0;border-top:1px solid var(--line)}
+.docSection:first-of-type{border-top:0}
+.docSection h2{font:500 clamp(24px,3vw,34px)/1.15 var(--font-display),ui-sans-serif,system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 16px;scroll-margin-top:120px}
+html[dir="rtl"] .docSection h2{letter-spacing:normal;line-height:1.35}
+.docSection p{font-size:16px;line-height:1.75;color:var(--carbon);max-width:70ch;margin:0 0 14px}
+.docSection p.muted{color:var(--muted)}
+.docSection ul{margin:0 0 14px;padding-inline-start:20px;max-width:70ch}
+.docSection li{font-size:16px;line-height:1.7;color:var(--carbon);margin-bottom:8px}
+.docSection a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(45,91,255,.35)}
+.docSection a:hover{border-bottom-color:var(--signal)}
+
+/* footer links: real anchors, quiet until hover */
+.footerNav{display:flex;flex-wrap:wrap;gap:6px 0;align-items:center;margin:0;padding:0;list-style:none}
+.footerNav li{display:flex;align-items:center}
+.footerNav li::after{content:"·";margin:0 10px;color:rgba(246,244,239,.35)}
+.footerNav li:last-child::after{content:none}
+.footerNav a{font-size:13px;color:rgba(246,244,239,.62);text-decoration:none;transition:color .2s ease}
+.footerNav a:hover{color:var(--bone)}

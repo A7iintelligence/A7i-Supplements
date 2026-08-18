@@ -161,7 +161,7 @@ export default async function IngredientPage({ params }) {
 
       {bf && (
         <section className="bestForSection" id="best-for">
-          <p className="eyebrow">{ar ? "لماذا يؤخذ" : "WHAT IT IS ACTUALLY GOOD FOR"}</p>
+          <p className="eyebrow">{ar ? "لماذا يؤخذ" : "What it's actually good for"}</p>
           <div className="bfList">
             {bf.best.map((b) => {
               const g = gradeMeta[b.grade];
@@ -179,7 +179,7 @@ export default async function IngredientPage({ params }) {
 
           {bf.not?.length > 0 && (
             <div className="bfNot">
-              <p className="eyebrow">{ar ? "يُشترى لهذا، والدليل لا يدعمه" : "BOUGHT FOR THIS, BUT THE EVIDENCE DOES NOT SUPPORT IT"}</p>
+              <p className="bfNotLabel">{ar ? "يُشترى لهذا، والدليل لا يدعمه" : "Bought for this, but the evidence doesn't support it"}</p>
               {bf.not.map((x) => (
                 <article key={x.outcome}>
                   <span className="bfOutcome">{ar ? x.outcomeAr : x.outcome}</span>
@@ -190,7 +190,7 @@ export default async function IngredientPage({ params }) {
           )}
 
           <div className="bfFood">
-            <small>{ar ? "الغذاء أم المكمّل؟" : "FOOD OR SUPPLEMENT?"}</small>
+            <small>{ar ? "الغذاء أم المكمّل؟" : "Food or supplement?"}</small>
             <strong>{d.foodVsShelf.verdict}</strong>
           </div>
         </section>
