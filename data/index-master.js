@@ -20,14 +20,14 @@ const P = "precision-biology";
 export const masterIndex = [
   // ── VITAMINS ─────────────────────────────────────────────────────────
   I("Vitamin A", "vitamins", F, null, ["retinol","retinyl palmitate","retinyl acetate"]),
-  I("Vitamin B1", "vitamins", F, null, ["thiamine","thiamin"]),
-  I("Vitamin B2", "vitamins", F, null, ["riboflavin"]),
+  I("Vitamin B1", "vitamins", F, null, ["thiamine","thiamin","thiamine HCl","thiamine mononitrate","benfotiamine","TTFD","B1"]),
+  I("Vitamin B2", "vitamins", F, null, ["riboflavin","riboflavin-5-phosphate","R5P","B2"]),
   I("Vitamin B3", "vitamins", F, null, ["niacin","niacinamide","nicotinamide"]),
-  I("Vitamin B5", "vitamins", F, null, ["pantothenic acid"]),
+  I("Vitamin B5", "vitamins", F, null, ["pantothenic acid","calcium pantothenate","pantethine","B5"]),
   I("Vitamin B6", "vitamins", F, null, ["pyridoxine","P5P","pyridoxal-5-phosphate"]),
   I("Vitamin B7", "vitamins", F, null, ["biotin"]),
-  I("Vitamin B9", "vitamins", F, null, ["folate","folic acid","5-MTHF","methylfolate"]),
-  I("Vitamin B12", "vitamins", F, "vitamin-b12", ["cobalamin","cyanocobalamin","methylcobalamin","adenosylcobalamin"]),
+  I("Vitamin B9", "vitamins", F, null, ["folate","folic acid","5-MTHF","methylfolate","L-methylfolate","folinic acid","B9"]),
+  I("Vitamin B12", "vitamins", F, "vitamin-b12", ["cobalamin","cyanocobalamin","methylcobalamin","adenosylcobalamin","hydroxocobalamin","B12"]),
   I("Vitamin C", "vitamins", F, "vitamin-c", ["ascorbic acid","ascorbate"]),
   I("Vitamin D", "vitamins", F, "vitamin-d3", ["vitamin d3","cholecalciferol","vitamin d2","ergocalciferol","D3","D2"]),
   I("Vitamin E", "vitamins", F, null, ["tocopherol","tocotrienol","alpha-tocopherol"]),
@@ -252,7 +252,7 @@ export const masterIndex = [
   I("Caffeine", "performance", A, null, ["anhydrous caffeine"]),
   I("L-theanine", "amino-acid-derivatives", A, null, ["theanine"]),
   I("Beetroot", "performance", A, null, ["dietary nitrate","beet juice"]),
-  I("Sodium bicarbonate", "performance", A, null, ["baking soda"]),
+  I("Sodium bicarbonate", "performance", A, null, ["baking soda","bicarb","bicarbonate","bicarbonate of soda","sodium bicarb"]),
   I("Exogenous ketones", "performance", P, null, ["ketone esters","BHB"]),
   I("Electrolyte formulas", "electrolytes", A, null, ["hydration powder","ORS"]),
   I("Greens powders", "food-bioactives", A, null, ["superfood powder"]),
@@ -272,6 +272,107 @@ export const masterIndex = [
   I("B-complex", "formulations", F, null, ["vitamin B complex"]),
   I("Prenatal formulations", "formulations", A, null, ["prenatal vitamin"]),
   I("BPC-157", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+
+  // ── PROTEIN (expansion) ──────────────────────────────────────────────
+  I("Pumpkin seed protein", "protein", A, null),
+  I("Beef protein isolate", "protein", A, null, ["beef protein"]),
+  I("Meal replacement", "protein", A, null, ["meal replacement shake"]),
+
+  // ── AMINO ACIDS (completion) ─────────────────────────────────────────
+  I("Aspartic acid", "amino-acids", A, null, ["aspartate", "D-aspartic acid", "DAA"]),
+  I("Asparagine", "amino-acids", A, null),
+  I("Glutamic acid", "amino-acids", A, null, ["glutamate"]),
+  I("D-ribose", "performance", A, null, ["ribose"]),
+
+  // ── FIBRE & PREBIOTICS (expansion) ───────────────────────────────────
+  I("Arabinogalactan", "prebiotics", A, null, ["larch arabinogalactan"]),
+  I("Wheat dextrin", "fibre", A, null, ["resistant dextrin", "soluble corn fibre"]),
+
+  // ── PROBIOTICS (strain / organism expansion) ─────────────────────────
+  I("Lactobacillus gasseri", "probiotics", A, null),
+  I("Lactobacillus crispatus", "probiotics", A, null),
+  I("Bifidobacterium breve", "probiotics", A, null),
+  I("Bifidobacterium bifidum", "probiotics", A, null),
+  I("Bifidobacterium adolescentis", "probiotics", P, null),
+  I("Bacillus clausii", "probiotics", A, null),
+
+  // ── POSTBIOTICS (expansion) ──────────────────────────────────────────
+  I("Pasteurised Akkermansia", "postbiotics", P, null, ["Akkermansia muciniphila pasteurised"]),
+  I("Tributyrin", "microbial-metabolites", P, null),
+
+  // ── ENZYMES (expansion) ──────────────────────────────────────────────
+  I("Cellulase", "enzymes", F, null),
+  I("Hemicellulase", "enzymes", F, null),
+  I("Invertase", "enzymes", F, null),
+  I("Maltase", "enzymes", F, null),
+  I("Glucoamylase", "enzymes", F, null),
+  I("Pectinase", "enzymes", F, null),
+
+  // ── BOTANICALS (expansion) ───────────────────────────────────────────
+  I("Eleuthero", "botanicals", A, null, ["Siberian ginseng", "Eleutherococcus"]),
+  I("Tribulus", "botanicals", A, null, ["Tribulus terrestris"]),
+  I("Red clover", "botanicals", A, null, ["Trifolium pratense"]),
+  I("Lavender", "botanicals", A, null, ["Lavandula", "Silexan"]),
+  I("Artichoke extract", "botanicals", A, null, ["Cynara scolymus"]),
+  I("Astragalus", "botanicals", A, null, ["Astragalus membranaceus", "huang qi"]),
+  I("Schisandra", "botanicals", A, null, ["Schisandra chinensis", "wu wei zi"]),
+  I("Holy basil", "botanicals", A, null, ["tulsi", "Ocimum sanctum"]),
+  I("Gotu kola", "botanicals", A, null, ["Centella asiatica"]),
+  I("Horsetail", "botanicals", A, null, ["Equisetum"]),
+  I("Nettle", "botanicals", A, null, ["stinging nettle", "Urtica dioica"]),
+  I("Dandelion", "botanicals", A, null, ["Taraxacum"]),
+  I("Burdock", "botanicals", A, null, ["Arctium lappa"]),
+  I("Aloe vera", "botanicals", A, null, ["aloe"]),
+  I("Clove", "botanicals", A, null, ["Syzygium aromaticum", "eugenol"]),
+  I("Rosemary extract", "botanicals", A, null, ["Rosmarinus", "carnosic acid"]),
+  I("Oregano", "botanicals", A, null, ["oil of oregano", "carvacrol"]),
+  I("Olive leaf", "botanicals", A, null, ["oleuropein", "olive leaf extract"]),
+
+  // ── MUSHROOMS (expansion) ────────────────────────────────────────────
+  I("Agaricus blazei", "fungi", A, null),
+  I("Tremella", "fungi", A, null, ["Tremella fuciformis", "snow mushroom"]),
+
+  // ── FOOD-DERIVED & WHOLE-FOOD ────────────────────────────────────────
+  I("Apple cider vinegar", "food-derived", F, null, ["ACV", "acetic acid"]),
+  I("Oyster powder", "food-derived", A, null, ["oyster extract", "freeze-dried oyster"]),
+  I("Sea moss", "food-derived", A, null, ["Irish moss", "Chondrus crispus"]),
+  I("Wheatgrass", "food-derived", A, null),
+  I("Barley grass", "food-derived", A, null),
+  I("Acerola", "food-derived", A, null, ["acerola cherry"]),
+  I("Camu camu", "food-derived", A, null, ["Myrciaria dubia"]),
+  I("Amla", "food-derived", A, null, ["Indian gooseberry", "Emblica officinalis"]),
+  I("Cocoa flavanols", "food-derived", A, null, ["cocoa extract", "cacao flavanols"]),
+  I("Bone broth", "food-derived", A, null, ["bone broth protein"]),
+
+  // ── ORGAN & WHOLE-TISSUE ─────────────────────────────────────────────
+  I("Organ supplements", "organ-tissue", A, null, ["desiccated organ", "glandular", "organ capsules"]),
+  I("Desiccated liver", "organ-tissue", A, null, ["liver capsules", "beef liver"]),
+  I("Beef organ blend", "organ-tissue", A, null, ["multi-organ blend"]),
+  I("Heart (organ)", "organ-tissue", A, null, ["desiccated heart"]),
+  I("Kidney (organ)", "organ-tissue", A, null, ["desiccated kidney"]),
+  I("Spleen (organ)", "organ-tissue", A, null, ["desiccated spleen"]),
+  I("Pancreas (organ)", "organ-tissue", A, null),
+  I("Bone marrow", "organ-tissue", A, null),
+
+  // ── FORMULATION / PRODUCT CLASSES ────────────────────────────────────
+  I("Liquid trace minerals", "formulations", A, null, ["trace mineral drops", "ionic minerals"]),
+
+  // ── SPECIALTY / REGULATORY-VARYING ───────────────────────────────────
+  I("TUDCA", "specialty", P, null, ["tauroursodeoxycholic acid", "regulatory status varies by country"]),
+  I("Activated charcoal", "specialty", A, null, ["activated carbon"]),
+
+  // ── RESEARCH MOLECULES / PEPTIDES ────────────────────────────────────
+  // Regulatory classification is explicit. Online availability implies
+  // nothing about approval, safety or efficacy. Never ordinary supplements.
+  I("GHK-Cu", "research-molecules", P, null, ["copper peptide", "research peptide, not a dietary supplement"]),
+  I("TB-500", "research-molecules", P, null, ["thymosin beta-4", "research peptide, not a dietary supplement"]),
+  I("Epitalon", "research-molecules", P, null, ["epithalon", "research peptide, not a dietary supplement"]),
+  I("Pinealon", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+  I("MOTS-c", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+  I("Semax", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+  I("Selank", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+  I("CJC-1295", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
+  I("Ipamorelin", "research-molecules", P, null, ["research peptide, not a dietary supplement"]),
 ];
 
 // Category labels for the A–Z filter
@@ -310,6 +411,8 @@ export const indexCategories = [
   ["specialty","Specialty bioactives","مركبات متخصصة"],
   ["formulations","Formulations","التركيبات"],
   ["research-molecules","Research molecules","جزيئات بحثية"],
+  ["food-derived","Food-derived & whole-food","مكمّلات من الغذاء"],
+  ["organ-tissue","Organ & whole-tissue","الأعضاء والأنسجة"],
 ];
 
 export function indexByLetter() {

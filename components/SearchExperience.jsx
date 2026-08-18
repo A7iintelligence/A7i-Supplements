@@ -122,11 +122,6 @@ export default function SearchExperience({ lang, lockedCategory = null, hideCate
                     <>
                       <span className="bName">{item.name}</span>
                       {item.symbol && <span className="bSym">{item.symbol}</span>}
-                      {item.slug && verdicts[item.slug] && (
-                        <span className="bVerdict">
-                          <VerdictTag id={verdicts[item.slug]} lang={lang} />
-                        </span>
-                      )}
                     </>
                   );
                   return (
@@ -178,7 +173,7 @@ export default function SearchExperience({ lang, lockedCategory = null, hideCate
                 <Link href={`/${lang}/ingredient/${r.slug}`} className="searchResult" key={`${r.category}-${r.name}`}>
                   <span className="srName">{r.name}</span>
                   <span className="srCat">{catLabel}</span>
-                  {verdicts[r.slug] && <VerdictTag id={verdicts[r.slug]} lang={lang} />}
+                  <em className="srArrow" aria-hidden="true">{ar ? "←" : "→"}</em>
                 </Link>
               );
             }
